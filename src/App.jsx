@@ -18,18 +18,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // ======== CONFIGURABLE CONTENT ========
 const PROFILE = {
-  name: "LAGYU BOSS",
-  role: "kayi role mu okaya course",
+  name: "KIAN LOUISE G. SABORDO",
+  role: "Architecture?",
   blurb:
     "I design speculative architecture that blurs the line between physical and digital — parametric, adaptive, and beautifully unreal. (gemini yayni)",
-  email: "you@example.com",
-  location: "Angeles City, Pampanga",
+  email: "klgsabordo.21@gmail.com",
+  location: "Tabun, Angeles City, Pampanga",
   socials: [
     { label: "Instagram", href: "https://instagram.com/", icon: "bi-instagram" },
     { label: "socmed boss", href: "https://behance.net/", icon: "bi-behance" },
     { label: "LinkedIn", href: "https://linkedin.com/in/", icon: "bi-linkedin" },
     { label: "X", href: "https://x.com/", icon: "bi-twitter-x" },
   ],
+  course: "BS Architecture, Holy Angel University",
+
 };
 
 // Replace with your own images. (Unsplash used as placeholders.)
@@ -82,12 +84,11 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  { name: "kunwari keni magaling ka", value: 95 },
-  { name: "tas keni magaling ka pero magduda ka minsan", value: 80 },
-  { name: "syempre galingan meng bagya keni", value: 90 },
-  { name: "tas keni ditak mu naman)", value: 88 },
-  { name: "keni eme masyadu babagsak sarili mu", value: 82 },
-  { name: "keni bagsak me syempre bantang makatutuanan", value: 70 },
+  { name: "Intermediate AutoCad", value: 100 },
+  { name: "Intermediate Sketchup", value: 99 },
+  { name: "Lumion Renders", value: 99 },
+  { name: "D5 Renders", value: 99 },
+  { name: "Enscape Renders", value: 99 },
 ];
 
 export default function ArchitectPortfolio() {
@@ -242,6 +243,9 @@ export default function ArchitectPortfolio() {
                   kunwari ya yang line na yan bantang lunto yang masanting kening page ayni.
                 </p>
                 <ul className="list-unstyled m-0 op-85">
+                  <li className="mb-2">
+                    <i className="bi bi-mortarboard me-2" /> {PROFILE.course}
+                  </li>
                   <li className="mb-2">
                     <i className="bi bi-geo-alt me-2" /> {PROFILE.location}
                   </li>
