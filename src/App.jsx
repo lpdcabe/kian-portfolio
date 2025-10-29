@@ -42,7 +42,7 @@ import clinic from "./assets/proposed-community/perspectives/street-scapes/clini
 import mall2 from "./assets/proposed-community/perspectives/street-scapes/mall-2.png";
 import maldiff from "./assets/proposed-community/perspectives/street-scapes/maldiff-sun_1.png";
 import school from "./assets/proposed-community/perspectives/street-scapes/school-1.png";
-import school2 from "./assets/proposed-community/perspectives/street-scapes/school-2.png";
+import school2 from "./assets/proposed-community/perspectives/street-scapes/SCHOOL-2.png";
 
 import bedroomcross from "./assets/proposed-community/perspectives/studio-unit/1 BEDROOM CROSS.png";
 import floorplan2 from "./assets/proposed-community/perspectives/studio-unit/FLOOR PLAN DIMENSION 2.png";
@@ -70,9 +70,9 @@ import image4 from "./assets/proposed-community/placemaking/Image_4.png";
 import image from "./assets/proposed-community/placemaking/Image.png";
 
 import exterior2 from "./assets/proposed-community/spot-perspective/exterior-2.png";
-import exterior from "./assets/proposed-community/spot-perspective/exterior.png";
+import exterior from "./assets/proposed-community/spot-perspective/EXTERIOR.png";
 import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
-import roof from "./assets/proposed-community/spot-perspective/roof.png";
+import roof from "./assets/proposed-community/spot-perspective/ROOF.png";
 import scene2 from "./assets/proposed-community/spot-perspective/scene-2.png";
 import scene3 from "./assets/proposed-community/spot-perspective/scene-3.png";
 import scene4 from "./assets/proposed-community/spot-perspective/scene-4.png";
