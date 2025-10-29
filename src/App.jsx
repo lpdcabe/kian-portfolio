@@ -15,11 +15,79 @@ import {
   Alert,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
-import exterior from "./assets/proposed-community/spot-perspective/EXTERIOR.png";
-import exterior2 from "./assets/proposed-community/spot-perspective/exterior-2.png";
 
-// ======== CONFIGURABLE CONTENT ========
+/* ==== LOCAL ASSETS (Community) ==== */
+import condo1 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_1.png";
+import condo2 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_2.png";
+import condo3 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_3.png";
+import condo4 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_4.png";
+import condo5 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_5.png";
+import condo6 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_6.png";
+import condo7 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_7.png";
+import condo8 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image.png";
+
+import spotscene from "./assets/proposed-community/perspectives/spot-pres/Scene.png";
+import spotscene1 from "./assets/proposed-community/perspectives/spot-pres/Scene-1.png";
+import spotscene3 from "./assets/proposed-community/perspectives/spot-pres/Scene-3.png";
+import spotscene4 from "./assets/proposed-community/perspectives/spot-pres/Scene-4.png";
+import spotscene5 from "./assets/proposed-community/perspectives/spot-pres/Scene-5.png";
+import spotscene6 from "./assets/proposed-community/perspectives/spot-pres/Scene-6.png";
+import spotscene7 from "./assets/proposed-community/perspectives/spot-pres/Scene-7.png";
+import spotscene8 from "./assets/proposed-community/perspectives/spot-pres/Scene-8.png";
+import spotscene9 from "./assets/proposed-community/perspectives/spot-pres/Scene-9.png";
+
+import aerial from "./assets/proposed-community/perspectives/street-scapes/aerial.png";
+import clinic2 from "./assets/proposed-community/perspectives/street-scapes/clinic-2.png";
+import clinic from "./assets/proposed-community/perspectives/street-scapes/clinic.png";
+import mall2 from "./assets/proposed-community/perspectives/street-scapes/mall-2.png";
+import maldiff from "./assets/proposed-community/perspectives/street-scapes/maldiff-sun_1.png";
+import school from "./assets/proposed-community/perspectives/street-scapes/school-1.png";
+import school2 from "./assets/proposed-community/perspectives/street-scapes/school-2.png";
+
+import bedroomcross from "./assets/proposed-community/perspectives/studio-unit/1 BEDROOM CROSS.png";
+import floorplan2 from "./assets/proposed-community/perspectives/studio-unit/FLOOR PLAN DIMENSION 2.png";
+import floorplan from "./assets/proposed-community/perspectives/studio-unit/FLOOR PLAN DIMENSION.png";
+import image1_1 from "./assets/proposed-community/perspectives/studio-unit/image.png";
+import bedroomfloorplan from "./assets/proposed-community/perspectives/studio-unit/ONE BEDROOM FLOORPLAN.png";
+import bedroomlong from "./assets/proposed-community/perspectives/studio-unit/ONE BEDROOM LONGITUDINAL.png";
+import studioscene from "./assets/proposed-community/perspectives/studio-unit/Scene 1.png";
+import studioscene2 from "./assets/proposed-community/perspectives/studio-unit/Scene 2.png";
+import studioscene3 from "./assets/proposed-community/perspectives/studio-unit/Scene 3.png";
+import studioscene4 from "./assets/proposed-community/perspectives/studio-unit/Scene 4.png";
+import studioscene5 from "./assets/proposed-community/perspectives/studio-unit/Scene 6.png";
+import studioscene6 from "./assets/proposed-community/perspectives/studio-unit/Scene 7.png";
+import studioscene7 from "./assets/proposed-community/perspectives/studio-unit/Scene 8.png";
+import studioscene8 from "./assets/proposed-community/perspectives/studio-unit/Scene 9.png";
+import studioscene9 from "./assets/proposed-community/perspectives/studio-unit/Scene 10.png";
+import studioscene10 from "./assets/proposed-community/perspectives/studio-unit/Scene 11.png";
+import studiocross from "./assets/proposed-community/perspectives/studio-unit/STUDIO CROSS.png";
+import studioiso from "./assets/proposed-community/perspectives/studio-unit/STUDIO ISOMETRIC.png";
+import studioUNIT from "./assets/proposed-community/perspectives/studio-unit/STUDIO UNIT LONGITUDINAL.png";
+
+import image1 from "./assets/proposed-community/placemaking/Image_1.png";
+import image3 from "./assets/proposed-community/placemaking/Image_3.png";
+import image4 from "./assets/proposed-community/placemaking/Image_4.png";
+import image from "./assets/proposed-community/placemaking/Image.png";
+
+import exterior2 from "./assets/proposed-community/spot-perspective/exterior-2.png";
+import exterior from "./assets/proposed-community/spot-perspective/exterior.png";
+import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
+import roof from "./assets/proposed-community/spot-perspective/roof.png";
+import scene2 from "./assets/proposed-community/spot-perspective/scene-2.png";
+import scene3 from "./assets/proposed-community/spot-perspective/scene-3.png";
+import scene4 from "./assets/proposed-community/spot-perspective/scene-4.png";
+import scene5 from "./assets/proposed-community/spot-perspective/scene-5.png";
+import scene6 from "./assets/proposed-community/spot-perspective/scene-6.png";
+import scene7 from "./assets/proposed-community/spot-perspective/scene-7_1.png";
+import scene8 from "./assets/proposed-community/spot-perspective/scene-8_1.png";
+import scene9 from "./assets/proposed-community/spot-perspective/scene-9.png";
+import scene10 from "./assets/proposed-community/spot-perspective/scene-10.png";
+import scene15 from "./assets/proposed-community/spot-perspective/scene-15_3.png";
+import scene16 from "./assets/proposed-community/spot-perspective/scene-16.png";
+import spot from "./assets/proposed-community/spot-perspective/spot-for-detail.png";
+
+
+/* ======== CONFIGURABLE CONTENT ======== */
 const PROFILE = {
   name: "KIAN LOUISE G. SABORDO",
   role: "Architecture",
@@ -36,50 +104,126 @@ const PROFILE = {
   course: "BS Architecture, Holy Angel University",
 };
 
-// Replace with your own images.
 const PROJECTS = [
+{
+  title: "PROPOSED COMMUNITY",
+  year: 2024,
+  type: "Public Space / Pavilion",
+  cover: aerial,
+  tags: ["perspectives", "condo", "spot-pres", "street-scapes", "studio-unit", "placemaking"],
+  summary:
+    "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Condo, Spot Pres, Street Scapes, Studio Unit).",
+
+  folders: [
+    {
+      name: "Perspectives",
+      folders: [
+        // 1) CONDO — INITIAL
+        {
+          name: "Condo — Initial",
+          images: [condo1, condo2, condo3, condo4, condo5, condo6, condo7, condo8],
+        },
+        // 2) SPOT PRES
+        {
+          name: "Spot Pres",
+          images: [
+            spotscene, spotscene1, spotscene3, spotscene4, spotscene5,
+            spotscene6, spotscene7, spotscene8, spotscene9
+          ],
+        },
+        // 3) STREET-SCAPES
+        {
+          name: "Street-scapes",
+          images: [aerial, clinic, clinic2, mall2, maldiff, school, school2],
+        },
+        // 4) STUDIO UNIT
+        {
+          name: "Studio Unit",
+          images: [
+            // scenes
+            studioscene, studioscene2, studioscene3, studioscene4,
+            studioscene5, studioscene6, studioscene7, studioscene8,
+            studioscene9, studioscene10,
+            // diagrams / plans
+            studiocross, studioiso, studioUNIT,
+            bedroomcross, bedroomfloorplan, bedroomlong,
+            floorplan, floorplan2, image1_1
+          ],
+        },
+      ],
+    },
+
+    // Other topics as leaf folders
+    {
+      name: "Place Making",
+      images: [image, image1, image3, image4],
+    },
+    {
+      name: "Spot Perspectives (Set B)",
+      images: [
+        exterior, exterior2, rainPng,
+        scene2, scene3, scene4, scene5, scene6, scene7, scene8, scene9, scene10,
+        roof, scene15, scene16, spot
+      ],
+    },
+  ],
+},
   {
-    title: "PROPOSED COMMUNITY",
-    year: 2024,
-    type: "MARANGLE KABIT KO?",
-    cover:
-      rainPng,
-    images: [
-      exterior, rainPng, exterior2
-    ],
-    tags: ["hindi", "ko", "alam"],
-    summary:
-      "send ka summary mo dito.",
-  },
-  {
-    title: "luklukan ikwa ke keng google",
+    title: "PROPOSED PARK",
     year: 2025,
-    type: "dutung / paku",
+    type: "Landscape / Park",
     cover:
       "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1600&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1494415859740-21e878dd929d?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1526483360412-f4dbaf036963?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop",
-    ],
-    tags: ["biophilic", "high-rise", "façade"],
+    tags: ["concept", "paths", "materials"],
     summary:
-      "A biophilic tower with a responsive façade: operable fins and planter loggias tune daylight, ventilation, and privacy.",
+      "Park scheme with concept boards, circulation paths, and material references.",
+    folders: [
+      {
+        name: "Concept Boards",
+        images: [
+          "https://images.unsplash.com/photo-1494415859740-21e878dd929d?q=80&w=1600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1526483360412-f4dbaf036963?q=80&w=1600&auto=format&fit=crop",
+        ],
+      },
+      {
+        name: "Circulation & Paths",
+        images: [
+          "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop",
+        ],
+      },
+      {
+        name: "Material Studies",
+        images: [
+          "https://images.unsplash.com/photo-1520567263472-4d17a6b724b6?q=80&w=1600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1483825366482-1265f6e1e38f?q=80&w=1600&auto=format&fit=crop",
+        ],
+      },
+    ],
   },
   {
-    title: "Museum of Light",
+    title: "SAMPLE RENDER",
     year: 2023,
     type: "Cultural / Museum",
     cover:
       "https://images.unsplash.com/photo-1520567263472-4d17a6b724b6?q=80&w=1600&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1483825366482-1265f6e1e38f?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1537884944318-390069bb8665?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1600&auto=format&fit=crop",
-    ],
     tags: ["gallery", "light", "concrete"],
     summary:
-      "A subterranean museum carved with lightwells and catenary vaults. The gallery sequence is choreographed by luminance.",
+      "Subterranean museum studies split by folders for exteriors and galleries.",
+    folders: [
+      {
+        name: "Exteriors",
+        images: [
+          "https://images.unsplash.com/photo-1537884944318-390069bb8665?q=80&w=1600&auto=format&fit=crop",
+        ],
+      },
+      {
+        name: "Galleries",
+        images: [
+          "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1483825366482-1265f6e1e38f?q=80&w=1600&auto=format&fit=crop",
+        ],
+      },
+    ],
   },
 ];
 
@@ -94,21 +238,20 @@ const SKILLS = [
 export default function ArchitectPortfolio() {
   const [show, setShow] = useState(false);
   const [active, setActive] = useState(null);
+
   const [theme, setTheme] = useState(() => {
-  const saved = localStorage.getItem("theme");
+    const saved = localStorage.getItem("theme");
     if (saved) document.documentElement.setAttribute("data-theme", saved);
-    // default: light
-    return "light";
+    return saved || "light";
   });
+
   const stageRef = useRef(null);
 
-  // Apply theme to <html data-theme="">
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Parallax “unreal” grid card
   useEffect(() => {
     const el = stageRef.current;
     if (!el) return;
@@ -130,7 +273,7 @@ export default function ArchitectPortfolio() {
     setShow(true);
   };
 
-  const yearRange = React.useMemo(() => {
+  const yearRange = useMemo(() => {
     const years = PROJECTS.map((p) => p.year);
     return `${Math.min(...years)}–${Math.max(...years)}`;
   }, []);
@@ -155,22 +298,21 @@ export default function ArchitectPortfolio() {
               <Nav.Link href="#skills">Skills</Nav.Link>
               <Nav.Link href="#contact">Contact</Nav.Link>
 
-              {/* Dark Mode Toggle */}
-<button
-  type="button"
-  onClick={toggleTheme}
-  className={`theme-toggle ms-lg-3 ${theme}`}
-  aria-label="Toggle dark mode"
-  role="switch"
-  aria-checked={theme === "dark"}
->
-  <span className="toggle-track">
-    <span className="toggle-icon left" aria-hidden>☀️</span>
-    <span className="toggle-icon right" aria-hidden>🌙</span>
-    <span className="toggle-thumb" aria-hidden />
-  </span>
-</button>
-
+              {/* Dark Mode Toggle (icon-only) */}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className={`theme-toggle ms-lg-3 ${theme}`}
+                aria-label="Toggle dark mode"
+                role="switch"
+                aria-checked={theme === "dark"}
+              >
+                <span className="toggle-track">
+                  <span className="toggle-icon left" aria-hidden>☀️</span>
+                  <span className="toggle-icon right" aria-hidden>🌙</span>
+                  <span className="toggle-thumb" aria-hidden />
+                </span>
+              </button>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -204,9 +346,7 @@ export default function ArchitectPortfolio() {
                 <div className="floating-card">
                   <div className="grid"></div>
                   <div className="holo"></div>
-                  <div className="caption">
-                    Unreal studies &mdash; {yearRange}
-                  </div>
+                  <div className="caption">Unreal studies — {yearRange}</div>
                 </div>
               </div>
             </Col>
@@ -227,7 +367,7 @@ export default function ArchitectPortfolio() {
             {PROJECTS.map((p, i) => (
               <Col key={i} md={6} lg={4}>
                 <Card className="project-card h-100" onClick={() => openProject(p)}>
-                  <div className="ratio ratio-4x3 overflow-hidden">
+                  <div className="ratio ratio-4x3 overflow-hidden position-relative">
                     <img src={p.cover} alt={p.title} className="project-img" />
                   </div>
                   <Card.Body>
@@ -332,13 +472,40 @@ export default function ArchitectPortfolio() {
         © {new Date().getFullYear()} {PROFILE.name} — Portfolio
       </footer>
 
-      <ProjectModal show={show} onHide={() => setShow(false)} project={active} />
+      {/* Modal with Folder Switcher */}
+      <ProjectModal
+        show={show}
+        onHide={() => setShow(false)}
+        project={active}
+      />
     </div>
   );
 }
 
 function ProjectModal({ show, onHide, project }) {
+  const [folderIndex, setFolderIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+
+  useEffect(() => {
+    setFolderIndex(0);
+    setSubIndex(0);
+  }, [project]);
+
   if (!project) return null;
+
+  // Allow either leaf folder {name, images} or group {name, folders:[{name, images}]}
+  const folders = Array.isArray(project.folders) && project.folders.length
+    ? project.folders
+    : [{ name: "All", images: project.images || [] }];
+
+  const activeFolder = folders[folderIndex] || folders[0];
+  const isGroup = Array.isArray(activeFolder?.folders);
+  const subfolders = isGroup ? activeFolder.folders : null;
+
+  const currentImages = isGroup
+    ? (subfolders?.[subIndex]?.images ?? [])
+    : (activeFolder?.images ?? []);
+
   return (
     <Modal show={show} onHide={onHide} size="lg" centered className="project-modal">
       <Modal.Header closeButton className="modal-head">
@@ -346,22 +513,67 @@ function ProjectModal({ show, onHide, project }) {
           {project.title} <span className="modal-sub">· {project.type}</span>
         </Modal.Title>
       </Modal.Header>
+
       <Modal.Body className="modal-body-ink">
+        <div className="d-flex flex-wrap gap-3 align-items-center mb-3">
+          <div className="readable-strong">Folder:</div>
+          <Form.Select
+            value={folderIndex}
+            onChange={(e) => { setFolderIndex(Number(e.target.value)); setSubIndex(0); }}
+            style={{ maxWidth: 320 }}
+            aria-label="Choose folder"
+          >
+            {folders.map((f, i) => (
+              <option key={`${f.name}-${i}`} value={i}>
+                {f.name}{Array.isArray(f.folders) ? " (group)" : ""}
+              </option>
+            ))}
+          </Form.Select>
+
+          {isGroup && (
+            <>
+              <div className="readable-strong">Subfolder:</div>
+              <Form.Select
+                value={subIndex}
+                onChange={(e) => setSubIndex(Number(e.target.value))}
+                style={{ maxWidth: 320 }}
+                aria-label="Choose subfolder"
+              >
+                {subfolders.map((sf, i) => (
+                  <option key={`${sf.name}-${i}`} value={i}>
+                    {sf.name} ({i + 1}/{subfolders.length})
+                  </option>
+                ))}
+              </Form.Select>
+            </>
+          )}
+        </div>
+
         <div className="book-edge" aria-hidden />
         <Carousel interval={4200} fade>
-          {project.images.map((src, i) => (
+          {currentImages.map((src, i) => (
             <Carousel.Item key={i}>
-              <img className="d-block w-100 modal-img" src={src} alt={`${project.title} ${i + 1}`} />
+              <img
+                className="d-block w-100 modal-img"
+                src={src}
+                alt={`${project.title} — ${
+                  isGroup ? `${activeFolder.name} / ${subfolders[subIndex]?.name}` : activeFolder.name
+                } — ${i + 1}`}
+              />
             </Carousel.Item>
           ))}
         </Carousel>
-        <p className="mt-3 readable">{project.summary}</p>
-        <div className="d-flex flex-wrap gap-2 mt-2">
-          {project.tags.map((t) => (
-            <span key={t} className="tag">{t}</span>
-          ))}
-        </div>
+
+        {project.summary && <p className="mt-3 readable">{project.summary}</p>}
+        {project.tags?.length > 0 && (
+          <div className="d-flex flex-wrap gap-2 mt-2">
+            {project.tags.map((t) => (
+              <span key={t} className="tag">{t}</span>
+            ))}
+          </div>
+        )}
       </Modal.Body>
+
       <Modal.Footer className="modal-foot">
         <Button variant="outline-secondary" onClick={onHide} className="btn-outline-ink">
           Close
@@ -369,7 +581,13 @@ function ProjectModal({ show, onHide, project }) {
         <Button
           variant="secondary"
           className="btn-ink"
-          href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(`Inquiry about ${project.title}`)}`}
+          href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
+            `Inquiry about ${project.title}${
+              isGroup
+                ? " — " + activeFolder.name + " / " + (subfolders?.[subIndex]?.name ?? "")
+                : " — " + (activeFolder?.name ?? "")
+            }`
+          )}`}
         >
           Inquire
         </Button>
@@ -445,7 +663,7 @@ function NeonBackdrop() {
   );
 }
 
-// ======== STYLES (Palette-first + Dark Mode) ========
+/* ======== STYLES (Palette-first + Dark Mode) ======== */
 const stylesCss = `
 :root{
   --paper:#E8E2DA;
@@ -456,12 +674,10 @@ const stylesCss = `
   --ink-500:#5b6b76;
   --glass:rgba(69,87,99,0.08);
 }
-
-/* DARK THEME — uses the same palette flipped */
 :root[data-theme="dark"]{
-  --paper:#455763;     /* canvas */
-  --sand:#D6C9B4;      /* accent */
-  --ink:#E8E2DA;       /* text */
+  --paper:#455763;
+  --sand:#D6C9B4;
+  --ink:#E8E2DA;
   --ink-900:#F5F1EA;
   --ink-700:#E8E2DA;
   --ink-500:#D6C9B4;
@@ -469,20 +685,13 @@ const stylesCss = `
 }
 
 html, body, #root{ height:100%; background:var(--paper); color:var(--ink); }
-
 .muted{opacity:.78}
 .readable{ font-size:1.05rem; line-height:1.7; letter-spacing:.1px; }
 .readable-strong{ font-weight:600; letter-spacing:.2px; }
-
 .brand{ font-weight:800; letter-spacing:.5px; text-transform:uppercase; color:var(--ink); }
 .section-title{ font-weight:800; letter-spacing:.3px; color:var(--ink-900); }
+.text-gradient{ background: linear-gradient(92deg,var(--ink-900), var(--ink-500)); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
-.text-gradient{
-  background: linear-gradient(92deg,var(--ink-900), var(--ink-500));
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-
-/* Unreal backdrop */
 .neon-bg{ position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden; }
 .orb{ position:absolute; filter:blur(60px); opacity:.35; mix-blend-mode:multiply; }
 .orb-a{ width:40vw; height:40vw; left:-10vw; top:-10vw; background: radial-gradient(circle, var(--sand), transparent 60%); }
@@ -498,100 +707,10 @@ html, body, #root{ height:100%; background:var(--paper); color:var(--ink); }
     linear-gradient(transparent 39px, rgba(232,226,218,.12) 40px),
     linear-gradient(90deg, transparent 39px, rgba(232,226,218,.12) 40px);
 }
-
 .grain{ position:absolute; inset:-50%; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' opacity='0.05'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode:multiply; }
+.glass-nav{ background: linear-gradient(180deg, color-mix(in oklab, var(--paper), transparent 25%), rgba(0,0,0,0)); backdrop-filter: blur(8px); border-bottom: 1px solid color-mix(in oklab, var(--ink), transparent 70%); }
 
-.glass-nav{
-  background: linear-gradient(180deg, color-mix(in oklab, var(--paper), transparent 25%), rgba(0,0,0,0));
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid color-mix(in oklab, var(--ink), transparent 70%);
-}
-
-/* Theme toggle button */
-.theme-toggle{
-  display:inline-flex; align-items:center; gap:.25rem;
-  border:1px solid color-mix(in oklab, var(--ink), transparent 65%);
-  background: color-mix(in oklab, var(--paper), var(--ink) 6%);
-  color: var(--ink);
-  padding:.45rem .8rem; border-radius:999px; font-weight:700; letter-spacing:.2px;
-}
-.theme-toggle:hover{ filter:brightness(.96); }
-.theme-toggle .toggle-icon{ font-size:1.05rem; line-height:1; }
-
-/* Hero */
-.hero{ padding-top: 96px; min-height: 86vh; position: relative; }
-.hero-stage{ perspective:800px; }
-.floating-card{
-  --rx:0deg; --ry:0deg; --tx:0px; --ty:0px;
-  transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--tx), var(--ty));
-  transition: transform .08s linear;
-  position: relative; border-radius: 24px; overflow: hidden;
-  border:1px solid color-mix(in oklab, var(--ink), transparent 70%);
-  box-shadow: 0 24px 60px color-mix(in oklab, var(--ink), transparent 70%), inset 0 0 0 1px color-mix(in oklab, var(--ink), transparent 92%);
-}
-.floating-card .grid{ width:100%; aspect-ratio: 4/3; background:
-  radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 82%), transparent 50%),
-  conic-gradient(from 180deg at 50% 50%, color-mix(in oklab, var(--sand), transparent 72%), transparent 65%),
-  repeating-linear-gradient( to bottom, color-mix(in oklab, var(--ink), transparent 92%) 0 2px, transparent 2px 40px),
-  linear-gradient( to bottom right, color-mix(in oklab, var(--paper), white 20%), color-mix(in oklab, var(--sand), white 10%) );
-}
-.floating-card .holo{ position:absolute; inset:0; background:
-  radial-gradient(800px 300px at 30% 120%, color-mix(in oklab, var(--ink), transparent 82%), transparent 60%),
-  radial-gradient(600px 300px at 90% -10%, color-mix(in oklab, var(--sand), transparent 76%), transparent 60%);
-  mix-blend-mode:multiply;
-}
-.floating-card .caption{ position:absolute; left:16px; bottom:12px; font-weight:700; opacity:.85; color:var(--ink-900); }
-
-/* Sections */
-.py-6{ padding: 6rem 0; }
-.badge-chip{ border:1px solid color-mix(in oklab, var(--ink), transparent 65%); color:var(--ink-700); background:color-mix(in oklab, var(--paper), white 10%); padding:.35rem .6rem; border-radius:999px; }
-
-/* Cards */
-.project-card{ background: color-mix(in oklab, var(--paper), white 8%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%); cursor:pointer; transition: transform .25s ease, box-shadow .25s ease; border-radius: 20px; overflow:hidden; }
-.project-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 80px color-mix(in oklab, var(--ink), transparent 72%);} 
-.project-card .project-img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; filter:saturate(1.02) contrast(1.02); }
-.project-card:hover .project-img{ transform: scale(1.06);} 
-.tag{ font-size:.8rem; padding:.25rem .55rem; border-radius:999px; border:1px solid color-mix(in oklab, var(--ink), transparent 65%); background:color-mix(in oklab, var(--paper), white 14%); color:var(--ink-700); }
-
-/* Info blocks */
-.about-card, .contact-form, .contact-card{
-  background: color-mix(in oklab, var(--paper), white 10%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%);
-  box-shadow: 0 12px 40px color-mix(in oklab, var(--ink), transparent 85%);
-}
-
-/* Progress */
-.skill-row .progress{ height: 10px; background: color-mix(in oklab, var(--ink), transparent 90%); border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
-.skill-row .progress-bar{ background: linear-gradient(90deg, var(--ink), var(--ink-500)); box-shadow: 0 0 18px color-mix(in oklab, var(--ink), transparent 75%); }
-
-/* Buttons */
-.btn-ink{ background: var(--ink); color: color-mix(in oklab, var(--paper), white 10%); border:1px solid var(--ink-900); border-radius:999px; padding:.6rem 1rem; font-weight:700; letter-spacing:.2px; }
-.btn-ink:hover{ filter: brightness(0.95); }
-.btn-outline-ink{ background: transparent; color: var(--ink); border:1px solid var(--ink); border-radius:999px; padding:.6rem 1rem; font-weight:700; }
-.btn-outline-ink:hover{ background: color-mix(in oklab, var(--paper), var(--ink) 6%); }
-
-/* Links */
-a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-offset: 3px; }
-
-/* Modal — uses current theme vars */
-.project-modal .modal-content{ background: color-mix(in oklab, var(--paper), white 10%); border:1px solid color-mix(in oklab, var(--ink), transparent 70%); box-shadow: 0 32px 90px color-mix(in oklab, var(--ink), transparent 65%); }
-.modal-head{ border-bottom:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: linear-gradient(180deg, color-mix(in oklab, var(--sand), transparent 65%), transparent); }
-.modal-title-strong{ font-weight:800; color:var(--ink-900); letter-spacing:.3px; }
-.modal-sub{ font-size:.95rem; opacity:.8; font-weight:600; color:var(--ink-500); margin-left:.35rem; }
-.modal-body-ink{ position:relative; }
-.book-edge{ position:absolute; inset:auto 0 0 0; height:12px; background:
-  repeating-linear-gradient(90deg, color-mix(in oklab, var(--ink), transparent 78%) 0 2px, transparent 2px 6px);
-  opacity:.35; border-top:1px solid color-mix(in oklab, var(--ink), transparent 86%);
-}
-.modal-img{ border-radius:12px; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
-.modal-foot{ border-top:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: color-mix(in oklab, var(--paper), white 8%); }
-
-/* Helpers */
-.center{text-align:center}
-/* Theme toggle slider (icon-only) */
-.theme-toggle{
-  appearance:none; border:0; background:none; padding:0; margin:0;
-  display:inline-block;
-}
+.theme-toggle{ appearance:none; border:0; background:none; padding:0; margin:0; display:inline-block; }
 .theme-toggle .toggle-track{
   position:relative; width:56px; height:30px; border-radius:999px;
   background: color-mix(in oklab, var(--paper), var(--ink) 6%);
@@ -607,20 +726,61 @@ a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-of
 }
 .theme-toggle.light .toggle-thumb{ transform: translateX(0); }
 .theme-toggle.dark  .toggle-thumb{ transform: translateX(26px); }
-
-.theme-toggle .toggle-icon{
-  position:absolute; top:50%; transform:translateY(-50%); font-size:14px; opacity:.8;
-  pointer-events:none; user-select:none;
-}
+.theme-toggle .toggle-icon{ position:absolute; top:50%; transform:translateY(-50%); font-size:14px; opacity:.8; pointer-events:none; user-select:none; }
 .theme-toggle .toggle-icon.left{  left:8px;  }
 .theme-toggle .toggle-icon.right{ right:8px; }
 
-/* Hover/active states */
-.theme-toggle .toggle-track:hover{ filter:brightness(.98); }
-.theme-toggle .toggle-track:active .toggle-thumb{ transform: translateX(13px) scale(0.98); }
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .theme-toggle .toggle-thumb{ transition:none; }
+.hero{ padding-top: 96px; min-height: 86vh; position: relative; }
+.hero-stage{ perspective:800px; }
+.floating-card{ --rx:0deg; --ry:0deg; --tx:0px; --ty:0px; transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--tx), var(--ty)); transition: transform .08s linear; position: relative; border-radius: 24px; overflow: hidden; border:1px solid color-mix(in oklab, var(--ink), transparent 70%); box-shadow: 0 24px 60px color-mix(in oklab, var(--ink), transparent 70%), inset 0 0 0 1px color-mix(in oklab, var(--ink), transparent 92%); }
+.floating-card .grid{ width:100%; aspect-ratio: 4/3; background:
+  radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 82%), transparent 50%),
+  conic-gradient(from 180deg at 50% 50%, color-mix(in oklab, var(--sand), transparent 72%), transparent 65%),
+  repeating-linear-gradient( to bottom, color-mix(in oklab, var(--ink), transparent 92%) 0 2px, transparent 2px 40px),
+  linear-gradient( to bottom right, color-mix(in oklab, var(--paper), white 20%), color-mix(in oklab, var(--sand), white 10%) );
 }
+.floating-card .holo{ position:absolute; inset:0; background:
+  radial-gradient(800px 300px at 30% 120%, color-mix(in oklab, var(--ink), transparent 82%), transparent 60%),
+  radial-gradient(600px 300px at 90% -10%, color-mix(in oklab, var(--sand), transparent 76%), transparent 60%);
+  mix-blend-mode:multiply;
+}
+.floating-card .caption{ position:absolute; left:16px; bottom:12px; font-weight:700; opacity:.85; color:var(--ink-900); }
+
+.py-6{ padding: 6rem 0; }
+.badge-chip{ border:1px solid color-mix(in oklab, var(--ink), transparent 65%); color:var(--ink-700); background:color-mix(in oklab, var(--paper), white 10%); padding:.35rem .6rem; border-radius:999px; }
+
+.project-card{ background: color-mix(in oklab, var(--paper), white 8%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%); cursor:pointer; transition: transform .25s ease, box-shadow .25s ease; border-radius: 20px; overflow:hidden; }
+.project-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 80px color-mix(in oklab, var(--ink), transparent 72%);} 
+.project-card .project-img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; filter:saturate(1.02) contrast(1.02); }
+.project-card:hover .project-img{ transform: scale(1.06);} 
+.tag{ font-size:.8rem; padding:.25rem .55rem; border-radius:999px; border:1px solid color-mix(in oklab, var(--ink), transparent 65%); background:color-mix(in oklab, var(--paper), white 14%); color:var(--ink-700); }
+
+.about-card, .contact-form, .contact-card{
+  background: color-mix(in oklab, var(--paper), white 10%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%);
+  box-shadow: 0 12px 40px color-mix(in oklab, var(--ink), transparent 85%);
+}
+
+.skill-row .progress{ height: 10px; background: color-mix(in oklab, var(--ink), transparent 90%); border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
+.skill-row .progress-bar{ background: linear-gradient(90deg, var(--ink), var(--ink-500)); box-shadow: 0 0 18px color-mix(in oklab, var(--ink), transparent 75%); }
+
+.btn-ink{ background: var(--ink); color: color-mix(in oklab, var(--paper), white 10%); border:1px solid var(--ink-900); border-radius:999px; padding:.6rem 1rem; font-weight:700; letter-spacing:.2px; }
+.btn-ink:hover{ filter: brightness(0.95); }
+.btn-outline-ink{ background: transparent; color: var(--ink); border:1px solid var(--ink); border-radius:999px; padding:.6rem 1rem; font-weight:700; }
+.btn-outline-ink:hover{ background: color-mix(in oklab, var(--paper), var(--ink) 6%); }
+
+a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-offset: 3px; }
+
+.project-modal .modal-content{ background: color-mix(in oklab, var(--paper), white 10%); border:1px solid color-mix(in oklab, var(--ink), transparent 70%); box-shadow: 0 32px 90px color-mix(in oklab, var(--ink), transparent 65%); }
+.modal-head{ border-bottom:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: linear-gradient(180deg, color-mix(in oklab, var(--sand), transparent 65%), transparent); }
+.modal-title-strong{ font-weight:800; color:var(--ink-900); letter-spacing:.3px; }
+.modal-sub{ font-size:.95rem; opacity:.8; font-weight:600; color:var(--ink-500); margin-left:.35rem; }
+.modal-body-ink{ position:relative; }
+.book-edge{ position:absolute; inset:auto 0 0 0; height:12px; background:
+  repeating-linear-gradient(90deg, color-mix(in oklab, var(--ink), transparent 78%) 0 2px, transparent 2px 6px);
+  opacity:.35; border-top:1px solid color-mix(in oklab, var(--ink), transparent 86%);
+}
+.modal-img{ border-radius:12px; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
+.modal-foot{ border-top:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: color-mix(in oklab, var(--paper), white 8%); }
+
+.center{text-align:center}
 `;
