@@ -24,7 +24,7 @@ const PROFILE = {
   name: "KIAN LOUISE G. SABORDO",
   role: "Architecture",
   blurb:
-    "Speculative, parametric, beautifully unreal. I explore architecture where material logic meets digital imagination.",
+    "Speculative, parametric, beautiful. I explore architecture where material logic meets digital imagination.",
   email: "klgsabordo.21@gmail.com",
   location: "Tabun, Angeles City, Pampanga",
   socials: [
@@ -108,7 +108,7 @@ export default function ArchitectPortfolio() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Parallax “unreal” grid card
+  // Parallax grid card
   useEffect(() => {
     const el = stageRef.current;
     if (!el) return;
@@ -205,7 +205,7 @@ export default function ArchitectPortfolio() {
                   <div className="grid"></div>
                   <div className="holo"></div>
                   <div className="caption">
-                    Unreal studies &mdash; {yearRange}
+                    studies &mdash; {yearRange}
                   </div>
                 </div>
               </div>
@@ -482,7 +482,7 @@ html, body, #root{ height:100%; background:var(--paper); color:var(--ink); }
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 
-/* Unreal backdrop */
+/* backdrop */
 .neon-bg{ position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden; }
 .orb{ position:absolute; filter:blur(60px); opacity:.35; mix-blend-mode:multiply; }
 .orb-a{ width:40vw; height:40vw; left:-10vw; top:-10vw; background: radial-gradient(circle, var(--sand), transparent 60%); }
