@@ -17,15 +17,6 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /* ==== LOCAL ASSETS (Community) ==== */
-import condo1 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_1.png";
-import condo2 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_2.png";
-import condo3 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_3.png";
-import condo4 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_4.png";
-import condo5 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_5.png";
-import condo6 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_6.png";
-import condo7 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_7.png";
-import condo8 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image.png";
-
 import spotscene from "./assets/proposed-community/perspectives/spot-pres/Scene.png";
 import spotscene1 from "./assets/proposed-community/perspectives/spot-pres/Scene-1.png";
 import spotscene3 from "./assets/proposed-community/perspectives/spot-pres/Scene-3.png";
@@ -45,8 +36,6 @@ import school from "./assets/proposed-community/perspectives/street-scapes/schoo
 import school2 from "./assets/proposed-community/perspectives/street-scapes/SCHOOL-2.png";
 
 import bedroomcross from "./assets/proposed-community/perspectives/studio-unit/1 BEDROOM CROSS.png";
-import floorplan2 from "./assets/proposed-community/perspectives/studio-unit/FLOOR PLAN DIMENSION 2.png";
-import floorplan from "./assets/proposed-community/perspectives/studio-unit/FLOOR PLAN DIMENSION.png";
 import image1_1 from "./assets/proposed-community/perspectives/studio-unit/Image.png";
 import bedroomfloorplan from "./assets/proposed-community/perspectives/studio-unit/ONE BEDROOM FLOORPLAN.png";
 import bedroomlong from "./assets/proposed-community/perspectives/studio-unit/ONE BEDROOM LONGITUDINAL.png";
@@ -136,19 +125,14 @@ const PROJECTS = [
   year: 2024,
   type: "Public Space / Pavilion",
   cover: aerial,
-  tags: ["perspectives", "condo", "spot pres", "street scapes", "studio unit", "placemaking"],
+  tags: ["perspectives", "spot pres", "street scapes", "studio unit", "placemaking"],
   summary:
-    "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Condo, Spot Pres, Street Scapes, Studio Unit).",
+    "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Spot Pres, Street Scapes, Studio Unit).",
 
   folders: [
     {
       name: "Perspectives",
       folders: [
-        // 1) CONDO — INITIAL
-        {
-          name: "Condo - Initial",
-          images: [condo1, condo2, condo3, condo4, condo5, condo6, condo7, condo8],
-        },
         // 2) SPOT PRES
         {
           name: "Spot Pres",
@@ -173,7 +157,7 @@ const PROJECTS = [
             // diagrams / plans
             studiocross, studioiso, studioUNIT,
             bedroomcross, bedroomfloorplan, bedroomlong,
-            floorplan, floorplan2, image1_1
+            image1_1
           ],
         },
       ],
