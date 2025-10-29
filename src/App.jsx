@@ -87,6 +87,33 @@ import scene16 from "./assets/proposed-community/spot-perspective/scene-16.png";
 import spot from "./assets/proposed-community/spot-perspective/spot-for-detail.png";
 
 
+//PROPOSED PARK
+import parkaerial2 from "./assets/proposed-park/AERIAL 2.png";
+import parkaerial from "./assets/proposed-park/AERIAL.png";
+import parkimage1 from "./assets/proposed-park/Image_1.png";
+import parkimage2 from "./assets/proposed-park/Image_2.png";
+import parkimage3 from "./assets/proposed-park/Image_3.png";
+import parkimage4 from "./assets/proposed-park/Image_4.png";
+import parkimage5 from "./assets/proposed-park/Image_5.png";
+import parkimage6 from "./assets/proposed-park/Image_6.png";
+import parkimage7 from "./assets/proposed-park/Image_7.png";
+import parkimage8 from "./assets/proposed-park/Image_8.png";
+import parkimage9 from "./assets/proposed-park/Image_9.png";
+import parkimage11 from "./assets/proposed-park/Image_11.png";
+import parkimage12 from "./assets/proposed-park/Image_12.png";
+import parkimage13 from "./assets/proposed-park/Image_13.png";
+import parkimage14 from "./assets/proposed-park/Image_14.png";
+import parkimage16 from "./assets/proposed-park/Image_16.png";
+import parkimage17 from "./assets/proposed-park/Image_17.png";
+import parkimage18 from "./assets/proposed-park/Image_18.png";
+import parkimage20 from "./assets/proposed-park/Image_20.png";
+import parkimage21 from "./assets/proposed-park/Image_21.png";
+import parkimage from "./assets/proposed-park/Image.png";
+
+//SAMPLE RENDER
+import renderbedroom from "./assets/sample-render/bedroom.jpg";
+import renderlivingarea1 from "./assets/sample-render/Living Area 1.jpg";
+
 /* ======== CONFIGURABLE CONTENT ======== */
 const PROFILE = {
   name: "KIAN LOUISE G. SABORDO",
@@ -133,7 +160,7 @@ const PROJECTS = [
         },
         // 3) STREET-SCAPES
         {
-          name: "Street-scapes",
+          name: "Street Scapes",
           images: [aerial, clinic, clinic2, mall2, maldiff, school, school2],
         },
         // 4) STUDIO UNIT
@@ -168,63 +195,55 @@ const PROJECTS = [
     },
   ],
 },
-  {
-    title: "PROPOSED PARK",
-    year: 2025,
-    type: "Landscape / Park",
-    cover:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1600&auto=format&fit=crop",
-    tags: ["concept", "paths", "materials"],
-    summary:
-      "Park scheme with concept boards, circulation paths, and material references.",
-    folders: [
-      {
-        name: "Concept Boards",
-        images: [
-          "https://images.unsplash.com/photo-1494415859740-21e878dd929d?q=80&w=1600&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1526483360412-f4dbaf036963?q=80&w=1600&auto=format&fit=crop",
-        ],
-      },
-      {
-        name: "Circulation & Paths",
-        images: [
-          "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop",
-        ],
-      },
-      {
-        name: "Material Studies",
-        images: [
-          "https://images.unsplash.com/photo-1520567263472-4d17a6b724b6?q=80&w=1600&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1483825366482-1265f6e1e38f?q=80&w=1600&auto=format&fit=crop",
-        ],
-      },
-    ],
-  },
-  {
-    title: "SAMPLE RENDER",
-    year: 2023,
-    type: "Cultural / Museum",
-    cover:
-      "https://images.unsplash.com/photo-1520567263472-4d17a6b724b6?q=80&w=1600&auto=format&fit=crop",
-    tags: ["gallery", "light", "concrete"],
-    summary:
-      "Subterranean museum studies split by folders for exteriors and galleries.",
-    folders: [
-      {
-        name: "Exteriors",
-        images: [
-          "https://images.unsplash.com/photo-1537884944318-390069bb8665?q=80&w=1600&auto=format&fit=crop",
-        ],
-      },
-      {
-        name: "Galleries",
-        images: [
-          "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1600&auto=format&fit=crop",
-          "https://images.unsplash.com/photo-1483825366482-1265f6e1e38f?q=80&w=1600&auto=format&fit=crop",
-        ],
-      },
-    ],
-  },
+{
+  title: "PROPOSED PARK",
+  year: 2025,
+  type: "Landscape / Park",
+  cover: parkaerial, // local cover
+  tags: ["aerials", "perspectives", "boards"],
+  summary:
+    "Park scheme rendered locally. Aerial studies, perspective views, and reference boards.",
+  folders: [
+    {
+      name: "Aerials",
+      images: [parkaerial, parkaerial2],
+    },
+    {
+      name: "Perspectives — Set A",
+      images: [
+        parkimage1, parkimage2, parkimage3, parkimage4, parkimage5,
+        parkimage6, parkimage7, parkimage8, parkimage9
+      ],
+    },
+    {
+      name: "Perspectives — Set B",
+      images: [
+        parkimage11, parkimage12, parkimage13, parkimage14,
+        parkimage16, parkimage17, parkimage18, parkimage20, parkimage21
+      ],
+    },
+    {
+      name: "Boards / References",
+      images: [parkimage], // Image.png
+    },
+  ],
+},
+
+{
+  title: "SAMPLE RENDER",
+  year: 2023,
+  type: "Residential / Interiors",
+  cover: renderbedroom, // local cover
+  tags: ["interior", "lighting", "materials"],
+  summary:
+    "Sample interior renders (bedroom and living area) from local assets.",
+  folders: [
+    {
+      name: "Residential Interiors",
+      images: [renderbedroom, renderlivingarea1],
+    },
+  ],
+},
 ];
 
 const SKILLS = [
@@ -485,6 +504,7 @@ export default function ArchitectPortfolio() {
 function ProjectModal({ show, onHide, project }) {
   const [folderIndex, setFolderIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
+  const dockRef = useRef(null);
 
   useEffect(() => {
     setFolderIndex(0);
@@ -493,61 +513,138 @@ function ProjectModal({ show, onHide, project }) {
 
   if (!project) return null;
 
-  // Allow either leaf folder {name, images} or group {name, folders:[{name, images}]}
-  const folders = Array.isArray(project.folders) && project.folders.length
-    ? project.folders
-    : [{ name: "All", images: project.images || [] }];
+  // Normalize data
+  const folders =
+    Array.isArray(project.folders) && project.folders.length
+      ? project.folders
+      : [{ name: "All", images: project.images || [] }];
 
   const activeFolder = folders[folderIndex] || folders[0];
   const isGroup = Array.isArray(activeFolder?.folders);
   const subfolders = isGroup ? activeFolder.folders : null;
 
   const currentImages = isGroup
-    ? (subfolders?.[subIndex]?.images ?? [])
-    : (activeFolder?.images ?? []);
+    ? subfolders?.[subIndex]?.images ?? []
+    : activeFolder?.images ?? [];
+
+  // Helpers for previews
+  const folderPreview = (f) => {
+    if (Array.isArray(f.folders) && f.folders.length)
+      return f.folders[0]?.images?.[0];
+    return f.images?.[0];
+  };
+  const countOf = (f) =>
+    Array.isArray(f.folders)
+      ? f.folders.reduce((n, sf) => n + (sf.images?.length || 0), 0)
+      : (f.images?.length || 0);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e) => {
+      if (!show) return;
+      if (e.key === "ArrowRight") {
+        setFolderIndex((i) => (i + 1) % folders.length);
+        setSubIndex(0);
+      }
+      if (e.key === "ArrowLeft") {
+        setFolderIndex((i) => (i - 1 + folders.length) % folders.length);
+        setSubIndex(0);
+      }
+      if (isGroup && e.key === "ArrowDown") {
+        setSubIndex((i) => (i + 1) % subfolders.length);
+      }
+      if (isGroup && e.key === "ArrowUp") {
+        setSubIndex((i) => (i - 1 + subfolders.length) % subfolders.length);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [show, folders.length, isGroup, subfolders?.length]);
+
+  // Auto scroll active chip into view
+  useEffect(() => {
+    const el = dockRef.current?.querySelector('[data-active="true"]');
+    el?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }, [folderIndex]);
 
   return (
     <Modal show={show} onHide={onHide} size="lg" centered className="project-modal">
       <Modal.Header closeButton className="modal-head">
         <Modal.Title className="modal-title-strong">
-          {project.title} <span className="modal-sub">· {project.type}</span>
+          {project.title}
+          <span className="modal-sub"> · {project.type}</span>
         </Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="modal-body-ink">
-        <div className="d-flex flex-wrap gap-3 align-items-center mb-3">
-          <div className="readable-strong">Folder:</div>
-          <Form.Select
-            value={folderIndex}
-            onChange={(e) => { setFolderIndex(Number(e.target.value)); setSubIndex(0); }}
-            style={{ maxWidth: 320 }}
-            aria-label="Choose folder"
-          >
-            {folders.map((f, i) => (
-              <option key={`${f.name}-${i}`} value={i}>
-                {f.name}{Array.isArray(f.folders) ? " (group)" : ""}
-              </option>
-            ))}
-          </Form.Select>
-
+        {/* Breadcrumbs */}
+        <div className="crumbs readable-strong mb-2">
+          <span>{project.title}</span>
+          <span className="sep">›</span>
+          <span className="muted">{activeFolder.name}</span>
           {isGroup && (
             <>
-              <div className="readable-strong">Subfolder:</div>
-              <Form.Select
-                value={subIndex}
-                onChange={(e) => setSubIndex(Number(e.target.value))}
-                style={{ maxWidth: 320 }}
-                aria-label="Choose subfolder"
-              >
-                {subfolders.map((sf, i) => (
-                  <option key={`${sf.name}-${i}`} value={i}>
-                    {sf.name} ({i + 1}/{subfolders.length})
-                  </option>
-                ))}
-              </Form.Select>
+              <span className="sep">›</span>
+              <span className="muted">{subfolders[subIndex]?.name}</span>
             </>
           )}
         </div>
+
+        {/* FOLDER DOCK */}
+        <div className="folder-dock" ref={dockRef} role="tablist" aria-label="Project folders">
+          {folders.map((f, i) => {
+            const active = i === folderIndex;
+            const preview = folderPreview(f);
+            return (
+              <button
+                key={`${f.name}-${i}`}
+                role="tab"
+                aria-selected={active}
+                data-active={active ? "true" : "false"}
+                className={`folder-pill ${active ? "active" : ""}`}
+                onClick={() => {
+                  setFolderIndex(i);
+                  setSubIndex(0);
+                }}
+                title={f.name}
+              >
+                <div className="thumb" aria-hidden>
+                  {preview ? <img src={preview} alt="" /> : <span className="placeholder">📁</span>}
+                </div>
+                <div className="meta">
+                  <div className="name">{f.name}{Array.isArray(f.folders) ? " · group" : ""}</div>
+                  <div className="count muted small">{countOf(f)} images</div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* SUBFOLDER GRID (only for groups like Perspectives) */}
+        {isGroup && (
+          <div className="sub-grid" role="tablist" aria-label={`${activeFolder.name} subfolders`}>
+            {subfolders.map((sf, i) => {
+              const active = i === subIndex;
+              const prev = sf.images?.[0];
+              return (
+                <button
+                  key={`${sf.name}-${i}`}
+                  role="tab"
+                  aria-selected={active}
+                  className={`sub-card ${active ? "active" : ""}`}
+                  onClick={() => setSubIndex(i)}
+                  title={sf.name}
+                >
+                  <div className="sub-thumb">
+                    {prev ? <img src={prev} alt="" /> : <span className="placeholder">🖼️</span>}
+                  </div>
+                  <div className="sub-name readable-strong">{sf.name}</div>
+                  <div className="sub-count muted small">{sf.images?.length || 0} images</div>
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         <div className="book-edge" aria-hidden />
         <Carousel interval={4200} fade>
@@ -783,4 +880,51 @@ a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-of
 .modal-foot{ border-top:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: color-mix(in oklab, var(--paper), white 8%); }
 
 .center{text-align:center}
+/* —— Creative Folder Picker —— */
+.crumbs{ display:flex; gap:.5rem; align-items:center; }
+.crumbs .sep{ opacity:.5; }
+
+.folder-dock{
+  display:flex; gap:.6rem; overflow:auto; padding:.25rem .25rem .5rem;
+  margin-bottom: .75rem;
+  scroll-snap-type: x mandatory;
+}
+.folder-pill{
+  scroll-snap-align: center;
+  display:flex; align-items:center; gap:.65rem;
+  background: color-mix(in oklab, var(--paper), white 12%);
+  border:1px solid color-mix(in oklab, var(--ink), transparent 70%);
+  border-radius: 999px;
+  padding:.35rem .55rem .35rem .35rem;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  cursor:pointer; min-width: 220px; text-align:left;
+}
+.folder-pill:hover{ transform: translateY(-2px); box-shadow:0 8px 24px color-mix(in oklab, var(--ink), transparent 85%); }
+.folder-pill.active{ background: color-mix(in oklab, var(--paper), var(--sand) 12%); border-color: color-mix(in oklab, var(--ink), transparent 55%); }
+.folder-pill .thumb{
+  width:44px; height:44px; border-radius:10px; overflow:hidden; flex:0 0 44px;
+  border:1px solid color-mix(in oklab, var(--ink), transparent 75%);
+  background: color-mix(in oklab, var(--paper), white 8%);
+}
+.folder-pill .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.folder-pill .placeholder{ display:grid; place-items:center; width:100%; height:100%; font-size:22px; opacity:.7; }
+.folder-pill .meta .name{ font-weight:700; line-height:1.1; }
+.folder-pill .meta .count{ font-size:.8rem; }
+
+.sub-grid{
+  display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap:.75rem; margin:.25rem 0 1rem;
+}
+.sub-card{
+  text-align:left; border-radius:14px; padding:.45rem; cursor:pointer;
+  background: color-mix(in oklab, var(--paper), white 8%);
+  border:1px solid color-mix(in oklab, var(--ink), transparent 75%);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.sub-card:hover{ transform: translateY(-2px); box-shadow:0 12px 28px color-mix(in oklab, var(--ink), transparent 85%); }
+.sub-card.active{ background: color-mix(in oklab, var(--paper), var(--sand) 10%); border-color: color-mix(in oklab, var(--ink), transparent 55%); }
+.sub-thumb{ aspect-ratio: 4/3; border-radius:10px; overflow:hidden; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); background:color-mix(in oklab, var(--paper), white 6%); }
+.sub-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.sub-name{ margin-top:.45rem; }
+.sub-count{ font-size:.8rem; }
 `;
