@@ -42,7 +42,7 @@ import clinic from "./assets/proposed-community/perspectives/street-scapes/clini
 import mall2 from "./assets/proposed-community/perspectives/street-scapes/mall-2.png";
 import maldiff from "./assets/proposed-community/perspectives/street-scapes/maldiff-sun_1.png";
 import school from "./assets/proposed-community/perspectives/street-scapes/school-1.png";
-import school2 from "./assets/proposed-community/perspectives/street-scapes/SCHOOL-2.png";
+import school2 from "./assets/proposed-community/perspectives/street-scapes/school-2.png";
 
 import bedroomcross from "./assets/proposed-community/perspectives/studio-unit/1 BEDROOM CROSS.png";
 import floorplan2 from "./assets/proposed-community/perspectives/studio-unit/FLOOR PLAN DIMENSION 2.png";
@@ -70,9 +70,9 @@ import image4 from "./assets/proposed-community/placemaking/Image_4.png";
 import image from "./assets/proposed-community/placemaking/Image.png";
 
 import exterior2 from "./assets/proposed-community/spot-perspective/exterior-2.png";
-import exterior from "./assets/proposed-community/spot-perspective/EXTERIOR.png";
+import exterior from "./assets/proposed-community/spot-perspective/exterior.png";
 import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
-import roof from "./assets/proposed-community/spot-perspective/ROOF.png";
+import roof from "./assets/proposed-community/spot-perspective/roof.png";
 import scene2 from "./assets/proposed-community/spot-perspective/scene-2.png";
 import scene3 from "./assets/proposed-community/spot-perspective/scene-3.png";
 import scene4 from "./assets/proposed-community/spot-perspective/scene-4.png";
@@ -85,7 +85,6 @@ import scene10 from "./assets/proposed-community/spot-perspective/scene-10.png";
 import scene15 from "./assets/proposed-community/spot-perspective/scene-15_3.png";
 import scene16 from "./assets/proposed-community/spot-perspective/scene-16.png";
 import spot from "./assets/proposed-community/spot-perspective/spot-for-detail.png";
-
 
 //PROPOSED PARK
 import parkaerial2 from "./assets/proposed-park/AERIAL 2.png";
@@ -147,7 +146,7 @@ const PROJECTS = [
       folders: [
         // 1) CONDO — INITIAL
         {
-          name: "Condo — Initial",
+          name: "Condo - Initial",
           images: [condo1, condo2, condo3, condo4, condo5, condo6, condo7, condo8],
         },
         // 2) SPOT PRES
@@ -179,8 +178,6 @@ const PROJECTS = [
         },
       ],
     },
-
-    // Other topics as leaf folders
     {
       name: "Place Making",
       images: [image, image1, image3, image4],
@@ -504,7 +501,6 @@ export default function ArchitectPortfolio() {
 function ProjectModal({ show, onHide, project }) {
   const [folderIndex, setFolderIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
-  const dockRef = useRef(null);
 
   useEffect(() => {
     setFolderIndex(0);
@@ -513,138 +509,72 @@ function ProjectModal({ show, onHide, project }) {
 
   if (!project) return null;
 
-  // Normalize data
-  const folders =
-    Array.isArray(project.folders) && project.folders.length
-      ? project.folders
-      : [{ name: "All", images: project.images || [] }];
+  // Allow either leaf folder {name, images} or group {name, folders:[{name, images}]}
+  const folders = Array.isArray(project.folders) && project.folders.length
+    ? project.folders
+    : [{ name: "All", images: project.images || [] }];
 
   const activeFolder = folders[folderIndex] || folders[0];
   const isGroup = Array.isArray(activeFolder?.folders);
   const subfolders = isGroup ? activeFolder.folders : null;
 
   const currentImages = isGroup
-    ? subfolders?.[subIndex]?.images ?? []
-    : activeFolder?.images ?? [];
-
-  // Helpers for previews
-  const folderPreview = (f) => {
-    if (Array.isArray(f.folders) && f.folders.length)
-      return f.folders[0]?.images?.[0];
-    return f.images?.[0];
-  };
-  const countOf = (f) =>
-    Array.isArray(f.folders)
-      ? f.folders.reduce((n, sf) => n + (sf.images?.length || 0), 0)
-      : (f.images?.length || 0);
-
-  // Keyboard navigation
-  useEffect(() => {
-    const onKey = (e) => {
-      if (!show) return;
-      if (e.key === "ArrowRight") {
-        setFolderIndex((i) => (i + 1) % folders.length);
-        setSubIndex(0);
-      }
-      if (e.key === "ArrowLeft") {
-        setFolderIndex((i) => (i - 1 + folders.length) % folders.length);
-        setSubIndex(0);
-      }
-      if (isGroup && e.key === "ArrowDown") {
-        setSubIndex((i) => (i + 1) % subfolders.length);
-      }
-      if (isGroup && e.key === "ArrowUp") {
-        setSubIndex((i) => (i - 1 + subfolders.length) % subfolders.length);
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [show, folders.length, isGroup, subfolders?.length]);
-
-  // Auto scroll active chip into view
-  useEffect(() => {
-    const el = dockRef.current?.querySelector('[data-active="true"]');
-    el?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  }, [folderIndex]);
+    ? (subfolders?.[subIndex]?.images ?? [])
+    : (activeFolder?.images ?? []);
 
   return (
     <Modal show={show} onHide={onHide} size="lg" centered className="project-modal">
       <Modal.Header closeButton className="modal-head">
         <Modal.Title className="modal-title-strong">
-          {project.title}
-          <span className="modal-sub"> · {project.type}</span>
+          {project.title} <span className="modal-sub">· {project.type}</span>
         </Modal.Title>
       </Modal.Header>
 
       <Modal.Body className="modal-body-ink">
-        {/* Breadcrumbs */}
-        <div className="crumbs readable-strong mb-2">
-          <span>{project.title}</span>
-          <span className="sep">›</span>
-          <span className="muted">{activeFolder.name}</span>
+        {/* CHIP PICKERS */}
+        <div className="d-flex flex-column gap-3 mb-3">
+          <div className="d-flex align-items-center gap-2 flex-wrap">
+            <div className="readable-strong me-1">Folder:</div>
+            <div className="chip-row" role="tablist" aria-label="Choose folder">
+              {folders.map((f, i) => {
+                const active = i === folderIndex;
+                const grouped = Array.isArray(f.folders);
+                return (
+                  <button
+                    key={`${f.name}-${i}`}
+                    role="tab"
+                    aria-selected={active}
+                    className={`chip ${active ? 'active' : ''}`}
+                    onClick={() => { setFolderIndex(i); setSubIndex(0); }}
+                    title={grouped ? `${f.name} (group)` : f.name}
+                  >
+                    {f.name} {grouped ? <span className="chip-dot" aria-hidden>●</span> : null}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {isGroup && (
-            <>
-              <span className="sep">›</span>
-              <span className="muted">{subfolders[subIndex]?.name}</span>
-            </>
+            <div className="d-flex align-items-center gap-2 flex-wrap">
+              <div className="readable-strong me-1">Subfolder:</div>
+              <div className="chip-row" role="tablist" aria-label="Choose subfolder">
+                {subfolders.map((sf, i) => (
+                  <button
+                    key={`${sf.name}-${i}`}
+                    role="tab"
+                    aria-selected={i === subIndex}
+                    className={`chip ${i === subIndex ? 'active' : ''}`}
+                    onClick={() => setSubIndex(i)}
+                    title={`${sf.name} (${i + 1}/${subfolders.length})`}
+                  >
+                    {sf.name}
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
         </div>
-
-        {/* FOLDER DOCK */}
-        <div className="folder-dock" ref={dockRef} role="tablist" aria-label="Project folders">
-          {folders.map((f, i) => {
-            const active = i === folderIndex;
-            const preview = folderPreview(f);
-            return (
-              <button
-                key={`${f.name}-${i}`}
-                role="tab"
-                aria-selected={active}
-                data-active={active ? "true" : "false"}
-                className={`folder-pill ${active ? "active" : ""}`}
-                onClick={() => {
-                  setFolderIndex(i);
-                  setSubIndex(0);
-                }}
-                title={f.name}
-              >
-                <div className="thumb" aria-hidden>
-                  {preview ? <img src={preview} alt="" /> : <span className="placeholder">📁</span>}
-                </div>
-                <div className="meta">
-                  <div className="name">{f.name}{Array.isArray(f.folders) ? " · group" : ""}</div>
-                  <div className="count muted small">{countOf(f)} images</div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* SUBFOLDER GRID (only for groups like Perspectives) */}
-        {isGroup && (
-          <div className="sub-grid" role="tablist" aria-label={`${activeFolder.name} subfolders`}>
-            {subfolders.map((sf, i) => {
-              const active = i === subIndex;
-              const prev = sf.images?.[0];
-              return (
-                <button
-                  key={`${sf.name}-${i}`}
-                  role="tab"
-                  aria-selected={active}
-                  className={`sub-card ${active ? "active" : ""}`}
-                  onClick={() => setSubIndex(i)}
-                  title={sf.name}
-                >
-                  <div className="sub-thumb">
-                    {prev ? <img src={prev} alt="" /> : <span className="placeholder">🖼️</span>}
-                  </div>
-                  <div className="sub-name readable-strong">{sf.name}</div>
-                  <div className="sub-count muted small">{sf.images?.length || 0} images</div>
-                </button>
-              );
-            })}
-          </div>
-        )}
 
         <div className="book-edge" aria-hidden />
         <Carousel interval={4200} fade>
@@ -879,52 +809,13 @@ a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-of
 .modal-img{ border-radius:12px; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
 .modal-foot{ border-top:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: color-mix(in oklab, var(--paper), white 8%); }
 
+/* ===== CHIP PICKERS ===== */
+.chip-row{ display:flex; gap:.5rem; flex-wrap:wrap; max-width:100%; overflow-x:auto; padding:.25rem; border-radius:12px; background: color-mix(in oklab, var(--paper), white 6%); border:1px dashed color-mix(in oklab, var(--ink), transparent 75%); }
+.chip{ appearance:none; border:1px solid color-mix(in oklab, var(--ink), transparent 65%); background:color-mix(in oklab, var(--paper), white 12%); color:var(--ink-700); padding:.35rem .8rem; border-radius:999px; font-weight:700; letter-spacing:.2px; cursor:pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease; }
+.chip:hover{ transform: translateY(-1px); background:color-mix(in oklab, var(--paper), white 18%); }
+.chip.active{ border-color: var(--ink); background: var(--ink); color: color-mix(in oklab, var(--paper), white 8%); box-shadow: 0 8px 24px color-mix(in oklab, var(--ink), transparent 70%); }
+.chip:focus{ outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--ink), transparent 70%); }
+.chip-dot{ font-size:.9em; opacity:.65; margin-left:.4rem; }
+
 .center{text-align:center}
-/* —— Creative Folder Picker —— */
-.crumbs{ display:flex; gap:.5rem; align-items:center; }
-.crumbs .sep{ opacity:.5; }
-
-.folder-dock{
-  display:flex; gap:.6rem; overflow:auto; padding:.25rem .25rem .5rem;
-  margin-bottom: .75rem;
-  scroll-snap-type: x mandatory;
-}
-.folder-pill{
-  scroll-snap-align: center;
-  display:flex; align-items:center; gap:.65rem;
-  background: color-mix(in oklab, var(--paper), white 12%);
-  border:1px solid color-mix(in oklab, var(--ink), transparent 70%);
-  border-radius: 999px;
-  padding:.35rem .55rem .35rem .35rem;
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-  cursor:pointer; min-width: 220px; text-align:left;
-}
-.folder-pill:hover{ transform: translateY(-2px); box-shadow:0 8px 24px color-mix(in oklab, var(--ink), transparent 85%); }
-.folder-pill.active{ background: color-mix(in oklab, var(--paper), var(--sand) 12%); border-color: color-mix(in oklab, var(--ink), transparent 55%); }
-.folder-pill .thumb{
-  width:44px; height:44px; border-radius:10px; overflow:hidden; flex:0 0 44px;
-  border:1px solid color-mix(in oklab, var(--ink), transparent 75%);
-  background: color-mix(in oklab, var(--paper), white 8%);
-}
-.folder-pill .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-.folder-pill .placeholder{ display:grid; place-items:center; width:100%; height:100%; font-size:22px; opacity:.7; }
-.folder-pill .meta .name{ font-weight:700; line-height:1.1; }
-.folder-pill .meta .count{ font-size:.8rem; }
-
-.sub-grid{
-  display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
-  gap:.75rem; margin:.25rem 0 1rem;
-}
-.sub-card{
-  text-align:left; border-radius:14px; padding:.45rem; cursor:pointer;
-  background: color-mix(in oklab, var(--paper), white 8%);
-  border:1px solid color-mix(in oklab, var(--ink), transparent 75%);
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
-}
-.sub-card:hover{ transform: translateY(-2px); box-shadow:0 12px 28px color-mix(in oklab, var(--ink), transparent 85%); }
-.sub-card.active{ background: color-mix(in oklab, var(--paper), var(--sand) 10%); border-color: color-mix(in oklab, var(--ink), transparent 55%); }
-.sub-thumb{ aspect-ratio: 4/3; border-radius:10px; overflow:hidden; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); background:color-mix(in oklab, var(--paper), white 6%); }
-.sub-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-.sub-name{ margin-top:.45rem; }
-.sub-count{ font-size:.8rem; }
 `;
