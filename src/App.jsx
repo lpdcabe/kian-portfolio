@@ -19,22 +19,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // ======== CONFIGURABLE CONTENT ========
 const PROFILE = {
   name: "KIAN LOUISE G. SABORDO",
-  role: "Architecture?",
+  role: "Architectural Designer",
   blurb:
-    "I design speculative architecture that blurs the line between physical and digital — parametric, adaptive, and beautifully unreal. (gemini yayni)",
+    "Speculative, parametric, beautifully unreal. I explore architecture where material logic meets digital imagination.",
   email: "klgsabordo.21@gmail.com",
   location: "Tabun, Angeles City, Pampanga",
   socials: [
     { label: "Instagram", href: "https://instagram.com/", icon: "bi-instagram" },
-    { label: "socmed boss", href: "https://behance.net/", icon: "bi-behance" },
+    { label: "Behance", href: "https://behance.net/", icon: "bi-behance" },
     { label: "LinkedIn", href: "https://linkedin.com/in/", icon: "bi-linkedin" },
     { label: "X", href: "https://x.com/", icon: "bi-twitter-x" },
   ],
   course: "BS Architecture, Holy Angel University",
-
 };
 
-// Replace with your own images. (Unsplash used as placeholders.)
+// Replace with your own images.
 const PROJECTS = [
   {
     title: "Parametric Canopy Pavilion",
@@ -49,7 +48,7 @@ const PROJECTS = [
     ],
     tags: ["parametric", "wood", "pavilion"],
     summary:
-      "A doubly-curved timber shell generated with a hexagonal panel logic. Components are CNC-milled and numerically indexed for rapid assembly.",
+      "A doubly-curved timber shell generated with a hexagonal panel logic. Components are CNC-milled and indexed for assembly.",
   },
   {
     title: "luklukan ikwa ke keng google",
@@ -64,7 +63,7 @@ const PROJECTS = [
     ],
     tags: ["biophilic", "high-rise", "façade"],
     summary:
-      "A biophilic tower with a responsive façade: operable fins and planter loggias tune daylight, ventilation, and privacy across seasons.",
+      "A biophilic tower with a responsive façade: operable fins and planter loggias tune daylight, ventilation, and privacy.",
   },
   {
     title: "Museum of Light",
@@ -79,25 +78,36 @@ const PROJECTS = [
     ],
     tags: ["gallery", "light", "concrete"],
     summary:
-      "A subterranean museum carved with lightwells and catenary vaults. The gallery sequence is choreographed by gradients of luminance.",
+      "A subterranean museum carved with lightwells and catenary vaults. The gallery sequence is choreographed by luminance.",
   },
 ];
 
 const SKILLS = [
-  { name: "Intermediate AutoCad", value: 100 },
-  { name: "Intermediate Sketchup", value: 99 },
-  { name: "Lumion Renders", value: 99 },
-  { name: "D5 Renders", value: 99 },
-  { name: "Enscape Renders", value: 99 },
+  { name: "AutoCAD", value: 100 },
+  { name: "SketchUp", value: 99 },
+  { name: "Lumion", value: 99 },
+  { name: "D5", value: 99 },
+  { name: "Enscape", value: 99 },
 ];
 
 export default function ArchitectPortfolio() {
   const [show, setShow] = useState(false);
   const [active, setActive] = useState(null);
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+  const saved = localStorage.getItem("theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+    // default: light
+    return "light";
+  });
   const stageRef = useRef(null);
 
-  // Parallax neon grid (unreal vibe)
+  // Apply theme to <html data-theme="">
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  // Parallax “unreal” grid card
   useEffect(() => {
     const el = stageRef.current;
     if (!el) return;
@@ -119,19 +129,21 @@ export default function ArchitectPortfolio() {
     setShow(true);
   };
 
-  const yearRange = useMemo(() => {
+  const yearRange = React.useMemo(() => {
     const years = PROJECTS.map((p) => p.year);
     return `${Math.min(...years)}–${Math.max(...years)}`;
   }, []);
 
+  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+
   return (
-    <div data-bs-theme={theme}>
+    <div>
       <style>{stylesCss}</style>
       <NeonBackdrop />
 
       <Navbar expand="lg" className="py-3 glass-nav fixed-top">
         <Container>
-          <Navbar.Brand href="#home" className="fw-bold text-uppercase">
+          <Navbar.Brand href="#home" className="brand">
             {PROFILE.name}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="nav" />
@@ -141,14 +153,23 @@ export default function ArchitectPortfolio() {
               <Nav.Link href="#about">About</Nav.Link>
               <Nav.Link href="#skills">Skills</Nav.Link>
               <Nav.Link href="#contact">Contact</Nav.Link>
-              <Button
-                size="sm"
-                variant="outline-light"
-                className="ms-lg-3 glow-btn"
-                onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-              >
-                {theme === "dark" ? "Light" : "Dark"} Mode
-              </Button>
+
+              {/* Dark Mode Toggle */}
+<button
+  type="button"
+  onClick={toggleTheme}
+  className={`theme-toggle ms-lg-3 ${theme}`}
+  aria-label="Toggle dark mode"
+  role="switch"
+  aria-checked={theme === "dark"}
+>
+  <span className="toggle-track">
+    <span className="toggle-icon left" aria-hidden>☀️</span>
+    <span className="toggle-icon right" aria-hidden>🌙</span>
+    <span className="toggle-thumb" aria-hidden />
+  </span>
+</button>
+
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -162,7 +183,7 @@ export default function ArchitectPortfolio() {
               <h1 className="display-5 fw-bold text-gradient mb-3">
                 {PROFILE.role}
               </h1>
-              <p className="lead op-80 mb-4">{PROFILE.blurb}</p>
+              <p className="lead readable mb-4">{PROFILE.blurb}</p>
               <div className="d-flex flex-wrap gap-2">
                 {PROFILE.socials.map((s) => (
                   <a
@@ -170,7 +191,7 @@ export default function ArchitectPortfolio() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-outline-light glow-btn"
+                    className="btn btn-ink"
                   >
                     <i className={`bi ${s.icon} me-2`} /> {s.label}
                   </a>
@@ -183,7 +204,7 @@ export default function ArchitectPortfolio() {
                   <div className="grid"></div>
                   <div className="holo"></div>
                   <div className="caption">
-                    uhhh tabalu kaku nanung lage ku — {yearRange}
+                    Unreal studies &mdash; {yearRange}
                   </div>
                 </div>
               </div>
@@ -196,8 +217,8 @@ export default function ArchitectPortfolio() {
       <section id="work" className="py-6">
         <Container>
           <div className="d-flex justify-content-between align-items-end mb-4">
-            <h2 className="fw-bold m-0">Selected Work</h2>
-            <Badge bg="info" className="op-80">
+            <h2 className="section-title m-0">Selected Work</h2>
+            <Badge bg="" className="badge-chip">
               {PROJECTS.length} projects
             </Badge>
           </div>
@@ -210,15 +231,15 @@ export default function ArchitectPortfolio() {
                   </div>
                   <Card.Body>
                     <div className="d-flex justify-content-between align-items-center mb-2">
-                      <Card.Title className="h5 m-0">{p.title}</Card.Title>
-                      <span className="op-70">{p.year}</span>
+                      <Card.Title className="h5 m-0 readable-strong">
+                        {p.title}
+                      </Card.Title>
+                      <span className="muted">{p.year}</span>
                     </div>
-                    <Card.Text className="small op-80 mb-2">{p.type}</Card.Text>
+                    <Card.Text className="small muted mb-2">{p.type}</Card.Text>
                     <div className="d-flex flex-wrap gap-2">
                       {p.tags.map((t) => (
-                        <Badge key={t} bg="secondary" className="op-80">
-                          {t}
-                        </Badge>
+                        <span key={t} className="tag">{t}</span>
                       ))}
                     </div>
                   </Card.Body>
@@ -235,14 +256,12 @@ export default function ArchitectPortfolio() {
           <Row className="g-5 align-items-center">
             <Col lg={6}>
               <div className="about-card p-4 rounded-4">
-                <h2 className="fw-bold mb-3">About</h2>
-                <p className="op-85">
-                  nanu ka sabyan me ing sarili mu tas siguru 1-3 sentence mu ne eme pakadakal
-                  ---------------------------------------------------------------------------
-                  ---------------------------------------------------------------------------
-                  kunwari ya yang line na yan bantang lunto yang masanting kening page ayni.
+                <h2 className="section-title mb-3">About</h2>
+                <p className="readable mb-4">
+                  I design with clarity and curiosity. Short 1–3 lines here work
+                  best to keep the page clean and focused.
                 </p>
-                <ul className="list-unstyled m-0 op-85">
+                <ul className="list-unstyled m-0 readable">
                   <li className="mb-2">
                     <i className="bi bi-mortarboard me-2" /> {PROFILE.course}
                   </li>
@@ -251,21 +270,21 @@ export default function ArchitectPortfolio() {
                   </li>
                   <li>
                     <i className="bi bi-envelope me-2" />
-                    <a href={`mailto:${PROFILE.email}`} className="link-light">
+                    <a href={`mailto:${PROFILE.email}`} className="link-ink">
                       {PROFILE.email}
                     </a>
                   </li>
                 </ul>
               </div>
             </Col>
-            <Col lg={6}>
+            <Col lg={6} id="skills">
               <Row className="g-3">
                 {SKILLS.map((s) => (
                   <Col key={s.name} xs={12}>
                     <div className="skill-row">
-                      <div className="d-flex justify-content-between mb-1">
+                      <div className="d-flex justify-content-between mb-1 readable-strong">
                         <span>{s.name}</span>
-                        <span className="op-70">{s.value}%</span>
+                        <span className="muted">{s.value}%</span>
                       </div>
                       <ProgressBar now={s.value} className="glow-progress" />
                     </div>
@@ -282,8 +301,8 @@ export default function ArchitectPortfolio() {
         <Container>
           <Row className="g-4 align-items-stretch">
             <Col lg={6}>
-              <h2 className="fw-bold mb-3">Let’s collaborate</h2>
-              <p className="op-85 mb-4">
+              <h2 className="section-title mb-3">Let’s collaborate</h2>
+              <p className="readable mb-4">
                 For commissions, competitions, or speaking, drop a line below. I’ll
                 get back within 48 hours.
               </p>
@@ -291,26 +310,25 @@ export default function ArchitectPortfolio() {
             </Col>
             <Col lg={6}>
               <div className="contact-card h-100 p-4 rounded-4">
-                <h5 className="mb-3">Capabilities</h5>
-                <ul className="op-85 small">
-                  <li>tabalu nanung ikabit mu keni</li>
-                  <li>eme wari kadwanan?</li>
-                  <li>atin ya rin pangatlu syempre</li>
+                <h5 className="readable-strong mb-3">Capabilities</h5>
+                <ul className="readable small mb-4">
+                  <li>Concept-to-detail parametric design</li>
+                  <li>Visualization & real-time rendering</li>
+                  <li>Competition packages & presentations</li>
                 </ul>
-                <h5 className="mt-4 mb-3">chenaan me mu keni certi makanyan</h5>
-                <ul className="op-85 small">
-                  <li>certificate mu keni (2025)</li>
-                  <li>syempre ali ya metung adwa la (2024)</li>
+                <h5 className="readable-strong mb-3">Recognition</h5>
+                <ul className="readable small">
+                  <li>Sample Certificate (2025)</li>
+                  <li>Another Recognition (2024)</li>
                 </ul>
-                <h5 className="mt-4 mb-3">nanu pa waring buri mu?</h5>
               </div>
             </Col>
           </Row>
         </Container>
       </section>
 
-      <footer className="py-4 op-70 small text-center">
-        © {new Date().getFullYear()} {PROFILE.name} — Built by bossing vic sotto lance
+      <footer className="py-4 small center muted">
+        © {new Date().getFullYear()} {PROFILE.name} — Portfolio
       </footer>
 
       <ProjectModal show={show} onHide={() => setShow(false)} project={active} />
@@ -322,38 +340,35 @@ function ProjectModal({ show, onHide, project }) {
   if (!project) return null;
   return (
     <Modal show={show} onHide={onHide} size="lg" centered className="project-modal">
-      <Modal.Header closeButton>
-        <Modal.Title>
+      <Modal.Header closeButton className="modal-head">
+        <Modal.Title className="modal-title-strong">
           {project.title} <span className="modal-sub">· {project.type}</span>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <Carousel interval={4000} fade>
+      <Modal.Body className="modal-body-ink">
+        <div className="book-edge" aria-hidden />
+        <Carousel interval={4200} fade>
           {project.images.map((src, i) => (
             <Carousel.Item key={i}>
-              <img className="d-block w-100" src={src} alt={`${project.title} ${i + 1}`} />
+              <img className="d-block w-100 modal-img" src={src} alt={`${project.title} ${i + 1}`} />
             </Carousel.Item>
           ))}
         </Carousel>
-        <p className="mt-3 op-85">{project.summary}</p>
-        <div className="d-flex flex-wrap gap-2">
+        <p className="mt-3 readable">{project.summary}</p>
+        <div className="d-flex flex-wrap gap-2 mt-2">
           {project.tags.map((t) => (
-            <Badge key={t} bg="secondary" className="op-80">
-              {t}
-            </Badge>
+            <span key={t} className="tag">{t}</span>
           ))}
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="outline-light" onClick={onHide} className="glow-btn">
+      <Modal.Footer className="modal-foot">
+        <Button variant="outline-secondary" onClick={onHide} className="btn-outline-ink">
           Close
         </Button>
         <Button
-          variant="light"
-          className="glow-btn"
-          href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(
-            `Inquiry about ${project.title}`
-          )}`}
+          variant="secondary"
+          className="btn-ink"
+          href={`mailto:${PROFILE.email}?subject=${encodeURIComponent(`Inquiry about ${project.title}`)}`}
         >
           Inquire
         </Button>
@@ -382,48 +397,34 @@ function ContactForm() {
     <div className="contact-form p-4 rounded-4">
       {sent && (
         <Alert variant="success" onClose={() => setSent(false)} dismissible>
-          Thanks! Your message was staged. In production, wire this to your
-          email or a service like Formspree.
+          Thanks! Your message was staged. In production, wire this to your email or a service like Formspree.
         </Alert>
       )}
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="g-3">
           <Col md={6}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
-              <Form.Control required type="text" placeholder="Lance Bagsik" />
-              <Form.Control.Feedback type="invalid">
-                Please provide your name.
-              </Form.Control.Feedback>
+              <Form.Label className="readable-strong">Name</Form.Label>
+              <Form.Control required type="text" placeholder="Your name" />
+              <Form.Control.Feedback type="invalid">Please provide your name.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col md={6}>
             <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control required type="email" placeholder="email@mo.com" />
-              <Form.Control.Feedback type="invalid">
-                A valid email is required.
-              </Form.Control.Feedback>
+              <Form.Label className="readable-strong">Email</Form.Label>
+              <Form.Control required type="email" placeholder="you@email.com" />
+              <Form.Control.Feedback type="invalid">A valid email is required.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col xs={12}>
             <Form.Group controlId="message">
-              <Form.Label>Message</Form.Label>
-              <Form.Control
-                required
-                as="textarea"
-                rows={4}
-                placeholder="Tell me about your project…"
-              />
-              <Form.Control.Feedback type="invalid">
-                Please add a short message.
-              </Form.Control.Feedback>
+              <Form.Label className="readable-strong">Message</Form.Label>
+              <Form.Control required as="textarea" rows={4} placeholder="Tell me about your project…" />
+              <Form.Control.Feedback type="invalid">Please add a short message.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col xs={12}>
-            <Button type="submit" variant="light" className="glow-btn">
-              Send Message
-            </Button>
+            <Button type="submit" className="btn-ink">Send Message</Button>
           </Col>
         </Row>
       </Form>
@@ -437,103 +438,188 @@ function NeonBackdrop() {
       <div className="orb orb-a"></div>
       <div className="orb orb-b"></div>
       <div className="orb orb-c"></div>
+      <div className="grid-lines" />
+      <div className="grain" />
     </div>
   );
 }
 
-// ======== STYLES ========
+// ======== STYLES (Palette-first + Dark Mode) ========
 const stylesCss = `
-:root {
-  --bg:#0b0d14;
-  --fg:#e9f2ff;
-  --muted:#8aa0b8;
-  --accent:#6ef3ff;
-  --accent2:#c76bff;
-  --glass:rgba(255,255,255,0.06);
+:root{
+  --paper:#E8E2DA;
+  --sand:#D6C9B4;
+  --ink:#455763;       /* dominant */
+  --ink-900:#2d3a44;
+  --ink-700:#3a4b56;
+  --ink-500:#5b6b76;
+  --glass:rgba(69,87,99,0.08);
 }
 
-[data-bs-theme="light"] {
-  --bg:#f6f8ff;
-  --fg:#0a0f1a;
-  --muted:#3c4b61;
-  --glass:rgba(0,0,0,0.06);
+/* DARK THEME — uses the same palette flipped */
+:root[data-theme="dark"]{
+  --paper:#455763;     /* canvas */
+  --sand:#D6C9B4;      /* accent */
+  --ink:#E8E2DA;       /* text */
+  --ink-900:#F5F1EA;
+  --ink-700:#E8E2DA;
+  --ink-500:#D6C9B4;
+  --glass:rgba(232,226,218,0.08);
 }
 
-html, body, #root {
-  height: 100%;
-  background: var(--bg);
-  color: var(--fg);
-}
+html, body, #root{ height:100%; background:var(--paper); color:var(--ink); }
 
-.op-70{opacity:.7}
-.op-80{opacity:.8}
-.op-85{opacity:.85}
+.muted{opacity:.78}
+.readable{ font-size:1.05rem; line-height:1.7; letter-spacing:.1px; }
+.readable-strong{ font-weight:600; letter-spacing:.2px; }
+
+.brand{ font-weight:800; letter-spacing:.5px; text-transform:uppercase; color:var(--ink); }
+.section-title{ font-weight:800; letter-spacing:.3px; color:var(--ink-900); }
 
 .text-gradient{
-  background: linear-gradient(92deg,var(--fg),var(--accent) 40%,var(--accent2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background: linear-gradient(92deg,var(--ink-900), var(--ink-500));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
 }
+
+/* Unreal backdrop */
+.neon-bg{ position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden; }
+.orb{ position:absolute; filter:blur(60px); opacity:.35; mix-blend-mode:multiply; }
+.orb-a{ width:40vw; height:40vw; left:-10vw; top:-10vw; background: radial-gradient(circle, var(--sand), transparent 60%); }
+.orb-b{ width:50vw; height:50vw; right:-15vw; bottom:-10vw; background: radial-gradient(circle, var(--ink-500), transparent 60%); opacity:.25;}
+.orb-c{ width:30vw; height:30vw; left:40vw; top:30vh; background: radial-gradient(circle, var(--ink), transparent 60%); opacity:.18;}
+.grid-lines{ position:absolute; inset:0; background:
+  linear-gradient(transparent 39px, rgba(69,87,99,.12) 40px),
+  linear-gradient(90deg, transparent 39px, rgba(69,87,99,.12) 40px);
+  background-size:40px 40px; mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 70%);
+}
+:root[data-theme="dark"] .grid-lines{
+  background:
+    linear-gradient(transparent 39px, rgba(232,226,218,.12) 40px),
+    linear-gradient(90deg, transparent 39px, rgba(232,226,218,.12) 40px);
+}
+
+.grain{ position:absolute; inset:-50%; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' opacity='0.05'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode:multiply; }
 
 .glass-nav{
-  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
+  background: linear-gradient(180deg, color-mix(in oklab, var(--paper), transparent 25%), rgba(0,0,0,0));
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink), transparent 70%);
 }
 
-.hero{ padding-top: 96px; min-height: 88vh; position: relative; }
-
-.hero-stage{
-  perspective: 800px;
+/* Theme toggle button */
+.theme-toggle{
+  display:inline-flex; align-items:center; gap:.25rem;
+  border:1px solid color-mix(in oklab, var(--ink), transparent 65%);
+  background: color-mix(in oklab, var(--paper), var(--ink) 6%);
+  color: var(--ink);
+  padding:.45rem .8rem; border-radius:999px; font-weight:700; letter-spacing:.2px;
 }
+.theme-toggle:hover{ filter:brightness(.96); }
+.theme-toggle .toggle-icon{ font-size:1.05rem; line-height:1; }
+
+/* Hero */
+.hero{ padding-top: 96px; min-height: 86vh; position: relative; }
+.hero-stage{ perspective:800px; }
 .floating-card{
-  --rx: 0deg; --ry: 0deg; --tx: 0px; --ty: 0px;
+  --rx:0deg; --ry:0deg; --tx:0px; --ty:0px;
   transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--tx), var(--ty));
   transition: transform .08s linear;
   position: relative; border-radius: 24px; overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06);
+  border:1px solid color-mix(in oklab, var(--ink), transparent 70%);
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--ink), transparent 70%), inset 0 0 0 1px color-mix(in oklab, var(--ink), transparent 92%);
 }
 .floating-card .grid{ width:100%; aspect-ratio: 4/3; background:
-  radial-gradient(1200px 600px at 80% 20%, rgba(110,243,255,.25), transparent 50%),
-  conic-gradient(from 180deg at 50% 50%, rgba(199,107,255,.18), transparent 65%),
-  repeating-linear-gradient( to bottom, rgba(255,255,255,.05) 0 2px, transparent 2px 40px),
-  linear-gradient( to bottom right, rgba(255,255,255,.06), rgba(255,255,255,.02) );
+  radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 82%), transparent 50%),
+  conic-gradient(from 180deg at 50% 50%, color-mix(in oklab, var(--sand), transparent 72%), transparent 65%),
+  repeating-linear-gradient( to bottom, color-mix(in oklab, var(--ink), transparent 92%) 0 2px, transparent 2px 40px),
+  linear-gradient( to bottom right, color-mix(in oklab, var(--paper), white 20%), color-mix(in oklab, var(--sand), white 10%) );
 }
-.floating-card .holo{
-  position:absolute; inset:0; background:
-    radial-gradient(800px 300px at 30% 120%, rgba(199,107,255,.18), transparent 60%),
-    radial-gradient(600px 300px at 90% -10%, rgba(110,243,255,.22), transparent 60%);
-  mix-blend-mode: screen;
+.floating-card .holo{ position:absolute; inset:0; background:
+  radial-gradient(800px 300px at 30% 120%, color-mix(in oklab, var(--ink), transparent 82%), transparent 60%),
+  radial-gradient(600px 300px at 90% -10%, color-mix(in oklab, var(--sand), transparent 76%), transparent 60%);
+  mix-blend-mode:multiply;
 }
-.floating-card .caption{
-  position:absolute; left:16px; bottom:12px; font-weight:600; opacity:.85;
-}
+.floating-card .caption{ position:absolute; left:16px; bottom:12px; font-weight:700; opacity:.85; color:var(--ink-900); }
 
-.neon-bg{ position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow:hidden; }
-.orb{ position:absolute; filter: blur(60px); opacity:.35; mix-blend-mode: screen; }
-.orb-a{ width: 40vw; height: 40vw; left: -10vw; top: -10vw; background: radial-gradient(circle, var(--accent), transparent 60%); }
-.orb-b{ width: 50vw; height: 50vw; right: -15vw; bottom: -10vw; background: radial-gradient(circle, var(--accent2), transparent 60%); }
-.orb-c{ width: 30vw; height: 30vw; left: 40vw; top: 30vh; background: radial-gradient(circle, #7cffb2, transparent 60%); opacity:.25 }
-
+/* Sections */
 .py-6{ padding: 6rem 0; }
+.badge-chip{ border:1px solid color-mix(in oklab, var(--ink), transparent 65%); color:var(--ink-700); background:color-mix(in oklab, var(--paper), white 10%); padding:.35rem .6rem; border-radius:999px; }
 
-.project-card{ background: var(--glass); border: 1px solid rgba(255,255,255,.08); cursor:pointer; transition: transform .25s ease, box-shadow .25s ease; border-radius: 20px; overflow:hidden; }
-.project-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.12);} 
-.project-card .project-img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+/* Cards */
+.project-card{ background: color-mix(in oklab, var(--paper), white 8%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%); cursor:pointer; transition: transform .25s ease, box-shadow .25s ease; border-radius: 20px; overflow:hidden; }
+.project-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 80px color-mix(in oklab, var(--ink), transparent 72%);} 
+.project-card .project-img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; filter:saturate(1.02) contrast(1.02); }
 .project-card:hover .project-img{ transform: scale(1.06);} 
+.tag{ font-size:.8rem; padding:.25rem .55rem; border-radius:999px; border:1px solid color-mix(in oklab, var(--ink), transparent 65%); background:color-mix(in oklab, var(--paper), white 14%); color:var(--ink-700); }
 
-.skill-row .progress{ height: 10px; background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.08); }
-.skill-row .progress-bar{ background: linear-gradient(90deg, var(--accent), var(--accent2)); box-shadow: 0 0 18px rgba(110,243,255,.35); }
-
-.glow-btn{ box-shadow: 0 0 0 rgba(110,243,255,0); transition: box-shadow .2s ease, transform .2s ease; }
-.glow-btn:hover{ transform: translateY(-1px); box-shadow: 0 0 20px rgba(110,243,255,.35); }
-
+/* Info blocks */
 .about-card, .contact-form, .contact-card{
-  background: var(--glass); border: 1px solid rgba(255,255,255,.08);
+  background: color-mix(in oklab, var(--paper), white 10%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%);
+  box-shadow: 0 12px 40px color-mix(in oklab, var(--ink), transparent 85%);
 }
 
-footer{ border-top: 1px solid rgba(255,255,255,.08); }
+/* Progress */
+.skill-row .progress{ height: 10px; background: color-mix(in oklab, var(--ink), transparent 90%); border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
+.skill-row .progress-bar{ background: linear-gradient(90deg, var(--ink), var(--ink-500)); box-shadow: 0 0 18px color-mix(in oklab, var(--ink), transparent 75%); }
 
-.project-modal .modal-content{ background: rgba(16,20,30,.9); backdrop-filter: blur(8px); border:1px solid rgba(255,255,255,.12); }
-.project-modal .modal-title{ display:flex; align-items:center; gap:.5rem; }
-.project-modal .modal-sub{ font-size:.9rem; opacity:.7; font-weight: 500; }
+/* Buttons */
+.btn-ink{ background: var(--ink); color: color-mix(in oklab, var(--paper), white 10%); border:1px solid var(--ink-900); border-radius:999px; padding:.6rem 1rem; font-weight:700; letter-spacing:.2px; }
+.btn-ink:hover{ filter: brightness(0.95); }
+.btn-outline-ink{ background: transparent; color: var(--ink); border:1px solid var(--ink); border-radius:999px; padding:.6rem 1rem; font-weight:700; }
+.btn-outline-ink:hover{ background: color-mix(in oklab, var(--paper), var(--ink) 6%); }
+
+/* Links */
+a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Modal — uses current theme vars */
+.project-modal .modal-content{ background: color-mix(in oklab, var(--paper), white 10%); border:1px solid color-mix(in oklab, var(--ink), transparent 70%); box-shadow: 0 32px 90px color-mix(in oklab, var(--ink), transparent 65%); }
+.modal-head{ border-bottom:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: linear-gradient(180deg, color-mix(in oklab, var(--sand), transparent 65%), transparent); }
+.modal-title-strong{ font-weight:800; color:var(--ink-900); letter-spacing:.3px; }
+.modal-sub{ font-size:.95rem; opacity:.8; font-weight:600; color:var(--ink-500); margin-left:.35rem; }
+.modal-body-ink{ position:relative; }
+.book-edge{ position:absolute; inset:auto 0 0 0; height:12px; background:
+  repeating-linear-gradient(90deg, color-mix(in oklab, var(--ink), transparent 78%) 0 2px, transparent 2px 6px);
+  opacity:.35; border-top:1px solid color-mix(in oklab, var(--ink), transparent 86%);
+}
+.modal-img{ border-radius:12px; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
+.modal-foot{ border-top:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: color-mix(in oklab, var(--paper), white 8%); }
+
+/* Helpers */
+.center{text-align:center}
+/* Theme toggle slider (icon-only) */
+.theme-toggle{
+  appearance:none; border:0; background:none; padding:0; margin:0;
+  display:inline-block;
+}
+.theme-toggle .toggle-track{
+  position:relative; width:56px; height:30px; border-radius:999px;
+  background: color-mix(in oklab, var(--paper), var(--ink) 6%);
+  border:1px solid color-mix(in oklab, var(--ink), transparent 65%);
+  box-shadow: inset 0 2px 6px color-mix(in oklab, var(--ink), transparent 85%);
+  display:inline-block;
+}
+.theme-toggle .toggle-thumb{
+  position:absolute; top:2px; left:2px; width:26px; height:26px; border-radius:50%;
+  background: var(--ink);
+  box-shadow: 0 2px 8px color-mix(in oklab, var(--ink), transparent 70%);
+  transition: transform .25s ease;
+}
+.theme-toggle.light .toggle-thumb{ transform: translateX(0); }
+.theme-toggle.dark  .toggle-thumb{ transform: translateX(26px); }
+
+.theme-toggle .toggle-icon{
+  position:absolute; top:50%; transform:translateY(-50%); font-size:14px; opacity:.8;
+  pointer-events:none; user-select:none;
+}
+.theme-toggle .toggle-icon.left{  left:8px;  }
+.theme-toggle .toggle-icon.right{ right:8px; }
+
+/* Hover/active states */
+.theme-toggle .toggle-track:hover{ filter:brightness(.98); }
+.theme-toggle .toggle-track:active .toggle-thumb{ transform: translateX(13px) scale(0.98); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .theme-toggle .toggle-thumb{ transition:none; }
+}
 `;
