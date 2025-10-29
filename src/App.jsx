@@ -16,7 +16,8 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
-import exterior from "./assets/proposed-community/spot-perspective/EXTERIOR.png";
+import exterior from "./assets/proposed-community/spot-perspective/exterior.png";
+import exterior2 from "./assets/proposed-community/spot-perspective/exterior-2.png";
 
 // ======== CONFIGURABLE CONTENT ========
 const PROFILE = {
@@ -44,7 +45,7 @@ const PROJECTS = [
     cover:
       rainPng,
     images: [
-      exterior, rainPng,
+      exterior, rainPng, exterior2
     ],
     tags: ["hindi", "ko", "alam"],
     summary:
