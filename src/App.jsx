@@ -14,6 +14,7 @@ import {
   Form,
   Alert,
 } from "react-bootstrap";
+import { useForm, ValidationError } from "@formspree/react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /* ==== LOCAL ASSETS (Community) ==== */
@@ -97,6 +98,19 @@ import parkimage18 from "./assets/proposed-park/Image_18.png";
 import parkimage20 from "./assets/proposed-park/Image_20.png";
 import parkimage21 from "./assets/proposed-park/Image_21.png";
 import parkimage from "./assets/proposed-park/Image.png";
+
+//SABA RESORT
+import bedroomlumion2 from "./assets/saba-resort/bedroom-2-lumion.jpg";
+import sababedroom2 from "./assets//saba-resort/BEDROOM 2.png";
+import bedroomlumion from "./assets/saba-resort/bedroom-lumion.jpg";
+import bedroomlumion3 from "./assets/saba-resort/BEDROOM 2.png";
+import sababedroom from "./assets/saba-resort/BEDROOM.png";
+import cabin from "./assets/saba-resort/CABIN 1 FLOOR PLAN.png";
+import dining from "./assets/saba-resort/DINING AREA LUMION.jpg";
+import frontelevation from "./assets/saba-resort/FRONT ELEVATION.png";
+import kitchen from "./assets//saba-resort/KITCHEN.png";
+import livingdining from "./assets/saba-resort/LIVING AND DINING.png";
+import livingarea from "./assets/saba-resort/LIVING AREA.png";
 
 //SAMPLE RENDER
 import renderbedroom from "./assets/sample-render/bedroom.jpg";
@@ -211,6 +225,22 @@ const PROJECTS = [
 },
 
 {
+  title: "SABA RESORT",
+  year: 2023,
+  type: "Resort / Interiors",
+  cover: livingarea, // local cover
+  tags: ["interior", "lighting", "materials"],
+  summary:
+    "Sample interior renders (kitchen, bedroom and living area) from local assets.",
+  folders: [
+    {
+      name: "Resort Interiors",
+      images: [bedroomlumion2, bedroomlumion3, sababedroom2, bedroomlumion, sababedroom, cabin, dining, frontelevation, kitchen, livingdining],
+    },
+  ],
+},
+
+{
   title: "SAMPLE RENDER",
   year: 2023,
   type: "Residential / Interiors",
@@ -279,6 +309,9 @@ export default function ArchitectPortfolio() {
   }, []);
 
   const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+
+  const FORMSPREE_URL = "https://formspree.io/f/xqagbajl";
+
 
   return (
     <div>
@@ -451,16 +484,16 @@ export default function ArchitectPortfolio() {
             </Col>
             <Col lg={6}>
               <div className="contact-card h-100 p-4 rounded-4">
-                <h5 className="readable-strong mb-3">Capabilities</h5>
+                <h5 className="readable-strong mb-3">Educational Attainment</h5>
                 <ul className="readable small mb-4">
-                  <li>Concept-to-detail parametric design</li>
-                  <li>Visualization & real-time rendering</li>
-                  <li>Competition packages & presentations</li>
+                  <li>4th Year - Bachelor of Science in Architecture | Holy Angel University | 2022 - Present</li>
+                  <li>Grade 11 & 12 - Bronze Academic Achievement | Angeles University Foundation | 2020-2022 </li>
                 </ul>
-                <h5 className="readable-strong mb-3">Recognition</h5>
+                <h5 className="readable-strong mb-3">Experience</h5>
                 <ul className="readable small">
-                  <li>Sample Certificate (2025)</li>
-                  <li>Another Recognition (2024)</li>
+                  <li>Pamintuan Construction | June 2025 - Present</li>
+                  <li>EJG Home Design | May 2025</li>
+                  <li>Shira Hospitality | April - June 2025</li>
                 </ul>
               </div>
             </Col>
@@ -608,53 +641,109 @@ function ProjectModal({ show, onHide, project }) {
 }
 
 function ContactForm() {
+  const formRef = useRef(null);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
   const [validated, setValidated] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const FORMSPREE_URL = "https://formspree.io/f/xqagbajl";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.currentTarget;
+    const form = formRef.current;
+
+    // Bootstrap validation
     if (form.checkValidity() === false) {
       e.stopPropagation();
-    } else {
-      setSent(true);
-      form.reset();
+      setValidated(true);
+      return;
     }
-    setValidated(true);
+
+    setSending(true);
+    setError("");
+
+    try {
+      const formData = new FormData(form);
+
+      // Optional: Formspree supports JSON; using FormData keeps file-upload support if you add it later
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+        setValidated(false);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const msg =
+          data?.errors?.map((e) => e.message).join(", ") ||
+          "Sorry, something went wrong. Please try again.";
+        setError(msg);
+      }
+    } catch (err) {
+      setError("Network error. Please try again or email me directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="contact-form p-4 rounded-4">
       {sent && (
         <Alert variant="success" onClose={() => setSent(false)} dismissible>
-          Thanks! Your message was staged. In production, wire this to your email or a service like Formspree.
+          Thanks! Your message was sent. I’ll reply to your email shortly.
         </Alert>
       )}
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      {error && (
+        <Alert variant="danger" onClose={() => setError("")} dismissible>
+          {error}
+        </Alert>
+      )}
+
+      <Form ref={formRef} noValidate validated={validated} onSubmit={handleSubmit}>
+        {/* Honeypot anti-spam (hidden) */}
+        <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="d-none" />
+
         <Row className="g-3">
           <Col md={6}>
             <Form.Group controlId="name">
               <Form.Label className="readable-strong">Name</Form.Label>
-              <Form.Control required type="text" placeholder="Your name" />
+              <Form.Control required type="text" name="name" placeholder="Your name" />
               <Form.Control.Feedback type="invalid">Please provide your name.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col md={6}>
             <Form.Group controlId="email">
               <Form.Label className="readable-strong">Email</Form.Label>
-              <Form.Control required type="email" placeholder="you@email.com" />
+              <Form.Control required type="email" name="email" placeholder="you@email.com" />
               <Form.Control.Feedback type="invalid">A valid email is required.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col xs={12}>
             <Form.Group controlId="message">
               <Form.Label className="readable-strong">Message</Form.Label>
-              <Form.Control required as="textarea" rows={4} placeholder="Tell me about your project…" />
+              <Form.Control
+                required
+                as="textarea"
+                rows={4}
+                name="message"
+                placeholder="Tell me about your project…"
+              />
               <Form.Control.Feedback type="invalid">Please add a short message.</Form.Control.Feedback>
             </Form.Group>
           </Col>
+
+          {/* Optional: success redirect page */}
+          {/* <input type="hidden" name="_next" value="https://your-site.com/thanks" /> */}
+
           <Col xs={12}>
-            <Button type="submit" className="btn-ink">Send Message</Button>
+            <Button type="submit" className="btn-ink" disabled={sending}>
+              {sending ? "Sending…" : "Send Message"}
+            </Button>
           </Col>
         </Row>
       </Form>
