@@ -15,8 +15,6 @@ import {
   Alert,
 } from "react-bootstrap";
 import { useForm, ValidationError } from "@formspree/react";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/react"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /* ==== LOCAL ASSETS (Community) ==== */
@@ -752,9 +750,6 @@ function ContactForm() {
     </div>
   );
 }
-
-<Analytics />
-{<SpeedInsights />}
 
 function NeonBackdrop() {
   return (
