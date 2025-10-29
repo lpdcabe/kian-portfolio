@@ -136,7 +136,7 @@ const PROJECTS = [
   year: 2024,
   type: "Public Space / Pavilion",
   cover: aerial,
-  tags: ["perspectives", "condo", "spot-pres", "street-scapes", "studio-unit", "placemaking"],
+  tags: ["perspectives", "condo", "spot pres", "street scapes", "studio unit", "placemaking"],
   summary:
     "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Condo, Spot Pres, Street Scapes, Studio Unit).",
 
