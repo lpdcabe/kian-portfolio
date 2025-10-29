@@ -15,11 +15,13 @@ import {
   Alert,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
+import exterior from "./assets/proposed-community/spot-perspective/exterior.png";
 
 // ======== CONFIGURABLE CONTENT ========
 const PROFILE = {
   name: "KIAN LOUISE G. SABORDO",
-  role: "Architectural Designer",
+  role: "Architecture",
   blurb:
     "Speculative, parametric, beautifully unreal. I explore architecture where material logic meets digital imagination.",
   email: "klgsabordo.21@gmail.com",
@@ -36,19 +38,17 @@ const PROFILE = {
 // Replace with your own images.
 const PROJECTS = [
   {
-    title: "Parametric Canopy Pavilion",
+    title: "PROPOSED COMMUNITY",
     year: 2024,
-    type: "Public Space / Pavilion",
+    type: "MARANGLE KABIT KO?",
     cover:
-      "https://images.unsplash.com/photo-1515518381872-c1f711c6db02?q=80&w=1600&auto=format&fit=crop",
+      rainPng,
     images: [
-      "https://images.unsplash.com/photo-1496302662116-35cc4f36df92?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1496307042367-0e1d0a56bc55?q=80&w=1600&auto=format&fit=crop",
+      exterior, rainPng,
     ],
-    tags: ["parametric", "wood", "pavilion"],
+    tags: ["hindi", "ko", "alam"],
     summary:
-      "A doubly-curved timber shell generated with a hexagonal panel logic. Components are CNC-milled and indexed for assembly.",
+      "send ka summary mo dito.",
   },
   {
     title: "luklukan ikwa ke keng google",
