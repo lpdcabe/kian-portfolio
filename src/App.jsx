@@ -14,7 +14,6 @@ import {
   Form,
   Alert,
 } from "react-bootstrap";
-import { useForm, ValidationError } from "@formspree/react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /* ==== LOCAL ASSETS (Community) ==== */
@@ -87,7 +86,7 @@ import scene15 from "./assets/proposed-community/spot-perspective/scene-15_3.png
 import scene16 from "./assets/proposed-community/spot-perspective/scene-16.png";
 import spot from "./assets/proposed-community/spot-perspective/spot-for-detail.png";
 
-//PROPOSED PARK
+// PROPOSED PARK
 import parkaerial2 from "./assets/proposed-park/AERIAL 2.png";
 import parkaerial from "./assets/proposed-park/AERIAL.png";
 import parkimage1 from "./assets/proposed-park/Image_1.png";
@@ -110,7 +109,7 @@ import parkimage20 from "./assets/proposed-park/Image_20.png";
 import parkimage21 from "./assets/proposed-park/Image_21.png";
 import parkimage from "./assets/proposed-park/Image.png";
 
-//SABA RESORT
+// SABA RESORT
 import bedroomlumion2 from "./assets/saba-resort/bedroom-2-lumion.jpg";
 import sababedroom2 from "./assets//saba-resort/BEDROOM 2.png";
 import bedroomlumion from "./assets/saba-resort/bedroom-lumion.jpg";
@@ -123,7 +122,7 @@ import kitchen from "./assets//saba-resort/KITCHEN.png";
 import livingdining from "./assets/saba-resort/LIVING AND DINING.png";
 import livingarea from "./assets/saba-resort/LIVING AREA.png";
 
-//SAMPLE RENDER
+// SAMPLE RENDER
 import renderbedroom from "./assets/sample-render/bedroom.jpg";
 import renderlivingarea1 from "./assets/sample-render/Living Area 1.jpg";
 
@@ -132,7 +131,7 @@ const PROFILE = {
   name: "KIAN LOUISE G. SABORDO",
   role: "Architecture",
   blurb:
-    "Speculative, parametric, beautifully unreal. I explore architecture where material logic meets digital imagination.",
+    "Speculative, parametric, beautiful. I explore architecture where material logic meets digital imagination.",
   email: "klgsabordo.21@gmail.com",
   location: "Tabun, Angeles City, Pampanga",
   socials: [
@@ -145,131 +144,193 @@ const PROFILE = {
 };
 
 const PROJECTS = [
-{
-  title: "PROPOSED COMMUNITY",
-  year: 2024,
-  type: "Public Space / Pavilion",
-  cover: aerial,
-  tags: ["neighborhood stores", "perspectives", "spot pres", "street scapes", "studio unit", "placemaking"],
-  summary:
-    "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Spot Pres, Street Scapes, Studio Unit).",
+  {
+    title: "PROPOSED COMMUNITY",
+    year: 2024,
+    type: "Public Space / Pavilion",
+    cover: aerial,
+    tags: ["neighborhood stores", "perspectives", "spot pres", "street scapes", "studio unit", "placemaking"],
+    summary:
+      "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Spot Pres, Street Scapes, Studio Unit).",
 
-  folders: [
-    {
-      name: "Neighborhood Stores",
-      images: [coffeestand, corner, neighboorhoodimage2, neighboorhoodimage4, neighboorhoodimage5, neighboorhood1, neighboorhood2, neighboorhood4, neighboorhoodstore, neighboorhoodnew],
-    },
-    {
-      name: "Perspectives",
-      folders: [
-        // 2) SPOT PRES
-        {
-          name: "Spot Pres",
-          images: [
-            spotscene, spotscene1, spotscene3, spotscene4, spotscene5,
-            spotscene6, spotscene7, spotscene8, spotscene9
-          ],
-        },
-        // 3) STREET-SCAPES
-        {
-          name: "Street Scapes",
-          images: [aerial, clinic, clinic2, mall2, maldiff, school, school2],
-        },
-        // 4) STUDIO UNIT
-        {
-          name: "Studio Unit",
-          images: [
-            // scenes
-            studioscene, studioscene2, studioscene3, studioscene4,
-            studioscene5, studioscene6, studioscene7, studioscene8,
-            studioscene9, studioscene10,
-            // diagrams / plans
-            studiocross, studioiso, studioUNIT,
-            bedroomcross, bedroomfloorplan, bedroomlong,
-            image1_1
-          ],
-        },
-      ],
-    },
-    {
-      name: "Place Making",
-      images: [image, image1, image3, image4],
-    },
-    {
-      name: "Spot Perspectives (Set B)",
-      images: [
-        exterior, exterior2, rainPng,
-        scene2, scene3, scene4, scene5, scene6, scene7, scene8, scene9, scene10,
-        roof, scene15, scene16, spot
-      ],
-    },
-  ],
-},
-{
-  title: "PROPOSED PARK",
-  year: 2025,
-  type: "Landscape / Park",
-  cover: parkaerial, // local cover
-  tags: ["aerials", "perspectives", "boards"],
-  summary:
-    "Park scheme rendered locally. Aerial studies, perspective views, and reference boards.",
-  folders: [
-    {
-      name: "Aerials",
-      images: [parkaerial, parkaerial2],
-    },
-    {
-      name: "Perspectives — Set A",
-      images: [
-        parkimage1, parkimage2, parkimage3, parkimage4, parkimage5,
-        parkimage6, parkimage7, parkimage8, parkimage9
-      ],
-    },
-    {
-      name: "Perspectives — Set B",
-      images: [
-        parkimage11, parkimage12, parkimage13, parkimage14,
-        parkimage16, parkimage17, parkimage18, parkimage20, parkimage21
-      ],
-    },
-    {
-      name: "Boards / References",
-      images: [parkimage], // Image.png
-    },
-  ],
-},
+    folders: [
+      {
+        name: "Neighborhood Stores",
+        images: [
+          coffeestand,
+          corner,
+          neighboorhoodimage2,
+          neighboorhoodimage4,
+          neighboorhoodimage5,
+          neighboorhood1,
+          neighboorhood2,
+          neighboorhood4,
+          neighboorhoodstore,
+          neighboorhoodnew,
+        ],
+      },
+      {
+        name: "Perspectives",
+        folders: [
+          {
+            name: "Spot Pres",
+            images: [
+              spotscene,
+              spotscene1,
+              spotscene3,
+              spotscene4,
+              spotscene5,
+              spotscene6,
+              spotscene7,
+              spotscene8,
+              spotscene9,
+            ],
+          },
+          {
+            name: "Street Scapes",
+            images: [aerial, clinic, clinic2, mall2, maldiff, school, school2],
+          },
+          {
+            name: "Studio Unit",
+            images: [
+              studioscene,
+              studioscene2,
+              studioscene3,
+              studioscene4,
+              studioscene5,
+              studioscene6,
+              studioscene7,
+              studioscene8,
+              studioscene9,
+              studioscene10,
+              studiocross,
+              studioiso,
+              studioUNIT,
+              bedroomcross,
+              bedroomfloorplan,
+              bedroomlong,
+              image1_1,
+            ],
+          },
+        ],
+      },
+      {
+        name: "Place Making",
+        images: [image, image1, image3, image4],
+      },
+      {
+        name: "Spot Perspectives (Set B)",
+        images: [
+          exterior,
+          exterior2,
+          rainPng,
+          scene2,
+          scene3,
+          scene4,
+          scene5,
+          scene6,
+          scene7,
+          scene8,
+          scene9,
+          scene10,
+          roof,
+          scene15,
+          scene16,
+          spot,
+        ],
+      },
+    ],
+  },
+  {
+    title: "PROPOSED PARK",
+    year: 2025,
+    type: "Landscape / Park",
+    cover: parkaerial,
+    tags: ["aerials", "perspectives", "boards"],
+    summary:
+      "Park scheme rendered locally. Aerial studies, perspective views, and reference boards.",
+    folders: [
+      {
+        name: "Aerials",
+        images: [parkaerial, parkaerial2],
+      },
+      {
+        name: "Perspectives — Set A",
+        images: [
+          parkimage1,
+          parkimage2,
+          parkimage3,
+          parkimage4,
+          parkimage5,
+          parkimage6,
+          parkimage7,
+          parkimage8,
+          parkimage9,
+        ],
+      },
+      {
+        name: "Perspectives — Set B",
+        images: [
+          parkimage11,
+          parkimage12,
+          parkimage13,
+          parkimage14,
+          parkimage16,
+          parkimage17,
+          parkimage18,
+          parkimage20,
+          parkimage21,
+        ],
+      },
+      {
+        name: "Boards / References",
+        images: [parkimage],
+      },
+    ],
+  },
 
-{
-  title: "SABA RESORT",
-  year: 2023,
-  type: "Resort / Interiors",
-  cover: livingarea, // local cover
-  tags: ["interior", "lighting", "materials"],
-  summary:
-    "Sample interior renders (kitchen, bedroom and living area) from local assets.",
-  folders: [
-    {
-      name: "Resort Interiors",
-      images: [bedroomlumion2, bedroomlumion3, sababedroom2, bedroomlumion, sababedroom, cabin, dining, frontelevation, kitchen, livingdining],
-    },
-  ],
-},
+  {
+    title: "SABA RESORT",
+    year: 2023,
+    type: "Resort / Interiors",
+    cover: livingarea,
+    tags: ["interior", "lighting", "materials"],
+    summary:
+      "Sample interior renders (kitchen, bedroom and living area) from local assets.",
+    folders: [
+      {
+        name: "Resort Interiors",
+        images: [
+          bedroomlumion2,
+          bedroomlumion3,
+          sababedroom2,
+          bedroomlumion,
+          sababedroom,
+          cabin,
+          dining,
+          frontelevation,
+          kitchen,
+          livingdining,
+        ],
+      },
+    ],
+  },
 
-{
-  title: "SAMPLE RENDER",
-  year: 2023,
-  type: "Residential / Interiors",
-  cover: renderbedroom, // local cover
-  tags: ["interior", "lighting", "materials"],
-  summary:
-    "Sample interior renders (bedroom and living area) from local assets.",
-  folders: [
-    {
-      name: "Residential Interiors",
-      images: [renderbedroom, renderlivingarea1],
-    },
-  ],
-},
+  {
+    title: "SAMPLE RENDER",
+    year: 2023,
+    type: "Residential / Interiors",
+    cover: renderbedroom,
+    tags: ["interior", "lighting", "materials"],
+    summary:
+      "Sample interior renders (bedroom and living area) from local assets.",
+    folders: [
+      {
+        name: "Residential Interiors",
+        images: [renderbedroom, renderlivingarea1],
+      },
+    ],
+  },
 ];
 
 const SKILLS = [
@@ -278,6 +339,18 @@ const SKILLS = [
   { name: "Lumion", value: 99 },
   { name: "D5", value: 99 },
   { name: "Enscape", value: 99 },
+];
+
+// New topic for the hero crossfade (carousel removed)
+const HIGHLIGHTS = [
+  { src: bedroomfloorplan, label: "1BR Floor Plan" },
+  { src: studiocross,      label: "Studio Cross Section" },
+  { src: studioiso,        label: "Studio Isometric" },
+  { src: studioUNIT,       label: "Studio Longitudinal" },
+  { src: bedroomcross,     label: "1BR Cross Section" },
+  { src: cabin,            label: "Cabin Floor Plan" },
+  { src: frontelevation,   label: "Front Elevation" },
+  { src: parkimage,        label: "Boards / References" },
 ];
 
 export default function ArchitectPortfolio() {
@@ -290,28 +363,10 @@ export default function ArchitectPortfolio() {
     return saved || "light";
   });
 
-  const stageRef = useRef(null);
-
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
-
-  useEffect(() => {
-    const el = stageRef.current;
-    if (!el) return;
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      el.style.setProperty("--rx", `${y * 6}deg`);
-      el.style.setProperty("--ry", `${-x * 6}deg`);
-      el.style.setProperty("--tx", `${-x * 8}px`);
-      el.style.setProperty("--ty", `${-y * 8}px`);
-    };
-    el.addEventListener("mousemove", onMove);
-    return () => el.removeEventListener("mousemove", onMove);
-  }, []);
 
   const openProject = (p) => {
     setActive(p);
@@ -324,9 +379,6 @@ export default function ArchitectPortfolio() {
   }, []);
 
   const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
-
-  const FORMSPREE_URL = "https://formspree.io/f/xqagbajl";
-
 
   return (
     <div>
@@ -346,19 +398,31 @@ export default function ArchitectPortfolio() {
               <Nav.Link href="#skills">Skills</Nav.Link>
               <Nav.Link href="#contact">Contact</Nav.Link>
 
-              {/* Dark Mode Toggle (icon-only) */}
+              {/* Dark Mode Toggle (icon-only, unreal, with swapping sun/moon) */}
               <button
                 type="button"
-                onClick={toggleTheme}
-                className={`theme-toggle ms-lg-3 ${theme}`}
+                onClick={(e) => {
+                  toggleTheme();
+                  e.currentTarget.classList.remove("burst");
+                  void e.currentTarget.offsetWidth; // reflow for burst
+                  e.currentTarget.classList.add("burst");
+                }}
+                className={`theme-toggle unreal ms-lg-3 ${theme}`}
                 aria-label="Toggle dark mode"
                 role="switch"
                 aria-checked={theme === "dark"}
               >
                 <span className="toggle-track">
-                  <span className="toggle-icon left" aria-hidden>☀️</span>
-                  <span className="toggle-icon right" aria-hidden>🌙</span>
-                  <span className="toggle-thumb" aria-hidden />
+                  <span className="toggle-aurora" aria-hidden />
+
+                  {/* thumb carries the active icon; they swap to the front */}
+                  <span className="toggle-thumb">
+                    <span className={`thumb-icon sun ${theme === "light" ? "front" : ""}`} aria-hidden>☀️</span>
+                    <span className={`thumb-icon moon ${theme === "dark" ? "front" : ""}`} aria-hidden>🌙</span>
+                    <span className="thumb-sparkle" aria-hidden />
+                  </span>
+
+                  <span className="toggle-glow" aria-hidden />
                 </span>
               </button>
             </Nav>
@@ -390,11 +454,31 @@ export default function ArchitectPortfolio() {
               </div>
             </Col>
             <Col lg={6}>
-              <div ref={stageRef} className="hero-stage">
-                <div className="floating-card">
-                  <div className="grid"></div>
-                  <div className="holo"></div>
-                  <div className="caption">Unreal studies — {yearRange}</div>
+              <div className="holo-frame">
+                <div className="blueprint">
+                  {/* Crossfading project shots */}
+                  {HIGHLIGHTS.map((h, i) => (
+                    <img
+                      key={h.label + i}
+                      src={h.src}
+                      alt={h.label}
+                      className="holo-img"
+                      style={{ "--i": i }}
+                    />
+                  ))}
+
+                  {/* FX layers */}
+                  <div className="scanline" aria-hidden />
+                  <div className="chromatic" aria-hidden />
+
+                  {/* Blueprint corners */}
+                  <span className="bp-corner tl" aria-hidden />
+                  <span className="bp-corner tr" aria-hidden />
+                  <span className="bp-corner bl" aria-hidden />
+                  <span className="bp-corner br" aria-hidden />
+                </div>
+
+                <div className="holo-caption">
                 </div>
               </div>
             </Col>
@@ -413,7 +497,7 @@ export default function ArchitectPortfolio() {
           </div>
           <Row className="g-4">
             {PROJECTS.map((p, i) => (
-              <Col key={i} md={6} lg={4}>
+              <Col key={i} sm={6} lg={4}>
                 <Card className="project-card h-100" onClick={() => openProject(p)}>
                   <div className="ratio ratio-4x3 overflow-hidden position-relative">
                     <img src={p.cover} alt={p.title} className="project-img" />
@@ -447,8 +531,7 @@ export default function ArchitectPortfolio() {
               <div className="about-card p-4 rounded-4">
                 <h2 className="section-title mb-3">About</h2>
                 <p className="readable mb-4">
-                  I design with clarity and curiosity. Short 1–3 lines here work
-                  best to keep the page clean and focused.
+                  I design with clarity and curiosity. crafting spaces that feel inevitable, useful, and quietly bold.
                 </p>
                 <ul className="list-unstyled m-0 readable">
                   <li className="mb-2">
@@ -521,11 +604,7 @@ export default function ArchitectPortfolio() {
       </footer>
 
       {/* Modal with Folder Switcher */}
-      <ProjectModal
-        show={show}
-        onHide={() => setShow(false)}
-        project={active}
-      />
+      <ProjectModal show={show} onHide={() => setShow(false)} project={active} />
     </div>
   );
 }
@@ -541,7 +620,6 @@ function ProjectModal({ show, onHide, project }) {
 
   if (!project) return null;
 
-  // Allow either leaf folder {name, images} or group {name, folders:[{name, images}]}
   const folders = Array.isArray(project.folders) && project.folders.length
     ? project.folders
     : [{ name: "All", images: project.images || [] }];
@@ -668,7 +746,6 @@ function ContactForm() {
     e.preventDefault();
     const form = formRef.current;
 
-    // Bootstrap validation
     if (form.checkValidity() === false) {
       e.stopPropagation();
       setValidated(true);
@@ -680,8 +757,6 @@ function ContactForm() {
 
     try {
       const formData = new FormData(form);
-
-      // Optional: Formspree supports JSON; using FormData keeps file-upload support if you add it later
       const res = await fetch(FORMSPREE_URL, {
         method: "POST",
         body: formData,
@@ -695,7 +770,7 @@ function ContactForm() {
       } else {
         const data = await res.json().catch(() => ({}));
         const msg =
-          data?.errors?.map((e) => e.message).join(", ") ||
+          (data?.errors?.map((e) => e.message).join(", ")) ||
           "Sorry, something went wrong. Please try again.";
         setError(msg);
       }
@@ -751,9 +826,6 @@ function ContactForm() {
               <Form.Control.Feedback type="invalid">Please add a short message.</Form.Control.Feedback>
             </Form.Group>
           </Col>
-
-          {/* Optional: success redirect page */}
-          {/* <input type="hidden" name="_next" value="https://your-site.com/thanks" /> */}
 
           <Col xs={12}>
             <Button type="submit" className="btn-ink" disabled={sending}>
@@ -825,43 +897,130 @@ html, body, #root{ height:100%; background:var(--paper); color:var(--ink); }
 .grain{ position:absolute; inset:-50%; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' opacity='0.05'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode:multiply; }
 .glass-nav{ background: linear-gradient(180deg, color-mix(in oklab, var(--paper), transparent 25%), rgba(0,0,0,0)); backdrop-filter: blur(8px); border-bottom: 1px solid color-mix(in oklab, var(--ink), transparent 70%); }
 
-.theme-toggle{ appearance:none; border:0; background:none; padding:0; margin:0; display:inline-block; }
+/* ==== UNREAL THEME TOGGLE (with swapping sun/moon) ==== */
+.theme-toggle{ appearance:none; border:0; background:none; padding:0; margin:0; display:inline-block; cursor:pointer; }
 .theme-toggle .toggle-track{
-  position:relative; width:56px; height:30px; border-radius:999px;
-  background: color-mix(in oklab, var(--paper), var(--ink) 6%);
-  border:1px solid color-mix(in oklab, var(--ink), transparent 65%);
-  box-shadow: inset 0 2px 6px color-mix(in oklab, var(--ink), transparent 85%);
+  --w:64px; --h:34px; --r:999px;
+  position:relative; width:var(--w); height:var(--h); border-radius:var(--r);
+  background: color-mix(in oklab, var(--paper), var(--ink) 7%);
+  border:1px solid color-mix(in oklab, var(--ink), transparent 60%);
+  box-shadow:
+    inset 0 2px 8px color-mix(in oklab, var(--ink), transparent 86%),
+    0 10px 24px color-mix(in oklab, var(--ink), transparent 85%);
+  overflow:hidden;
   display:inline-block;
 }
+
+/* Holographic aurora sweep */
+.theme-toggle .toggle-aurora{
+  position:absolute; inset:-40% -10%;
+  background:
+    radial-gradient(60% 40% at 25% 30%, color-mix(in oklab, var(--sand), transparent 70%), transparent 60%),
+    radial-gradient(60% 40% at 75% 70%, color-mix(in oklab, var(--ink-500), transparent 72%), transparent 60%);
+  mix-blend-mode: color-burn; opacity:.85;
+  transform: translateX(-30%);
+  animation: aurora-move 3.8s linear infinite;
+}
+@keyframes aurora-move {
+  0%   { transform: translateX(-30%); }
+  50%  { transform: translateX(10%); }
+  100% { transform: translateX(-30%); }
+}
+
+/* Soft outer glow ring */
+.theme-toggle .toggle-glow{
+  position:absolute; inset:-35%;
+  border-radius:999px;
+  box-shadow: 0 0 120px color-mix(in oklab, var(--ink), transparent 80%);
+  pointer-events:none;
+}
+
+/* Side markers (static) */
+.theme-toggle .toggle-icon.side{
+  position:absolute; top:50%; transform:translateY(-50%); font-size:14px; opacity:.75;
+  pointer-events:none; user-select:none;
+}
+.theme-toggle .toggle-icon.side.left{  left:9px;  }
+.theme-toggle .toggle-icon.side.right{ right:9px; }
+
+/* Thumb with micro-parallax + shine */
 .theme-toggle .toggle-thumb{
-  position:absolute; top:2px; left:2px; width:26px; height:26px; border-radius:50%;
-  background: var(--ink);
-  box-shadow: 0 2px 8px color-mix(in oklab, var(--ink), transparent 70%);
-  transition: transform .25s ease;
+  position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%;
+  background: linear-gradient(160deg, var(--ink), color-mix(in oklab, var(--ink), var(--paper) 10%));
+  box-shadow:
+    0 2px 10px color-mix(in oklab, var(--ink), transparent 65%),
+    inset 0 0 0 1px color-mix(in oklab, var(--paper), transparent 70%);
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), background .25s ease;
+  overflow:hidden;
+  display:grid; place-items:center;
 }
+
+/* Icons inside the thumb — stacked and cross-fading */
+.theme-toggle .thumb-icon{
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-size:15px; line-height:1;
+  opacity:0; transform: scale(.7) rotate(-10deg);
+  filter: drop-shadow(0 1px 0.5px color-mix(in oklab, var(--paper), transparent 40%));
+  transition: opacity .22s ease, transform .28s cubic-bezier(.2,.8,.2,1), z-index 0s linear;
+  z-index:1;
+}
+.theme-toggle .thumb-icon.front{
+  opacity:1; transform: scale(1) rotate(0deg); z-index:2;
+}
+
+/* Little sparkle inside the thumb */
+.theme-toggle .thumb-sparkle{
+  position:absolute; left:-40%; top:-40%; width:200%; height:200%;
+  background:
+    radial-gradient(8px 8px at 40% 45%, color-mix(in oklab, var(--paper), white 30%), transparent 60%),
+    radial-gradient(12px 8px at 70% 60%, color-mix(in oklab, var(--sand), white 20%), transparent 60%);
+  opacity:.55; filter: blur(0.3px);
+  animation: sparkle 2.2s ease-in-out infinite;
+}
+@keyframes sparkle{
+  0%,100%{ transform: translate(0,0) rotate(0deg); }
+  50%    { transform: translate(6%, 6%) rotate(8deg); }
+}
+
+/* Thumb travel + slight parallax per mode */
 .theme-toggle.light .toggle-thumb{ transform: translateX(0); }
-.theme-toggle.dark  .toggle-thumb{ transform: translateX(26px); }
-.theme-toggle .toggle-icon{ position:absolute; top:50%; transform:translateY(-50%); font-size:14px; opacity:.8; pointer-events:none; user-select:none; }
-.theme-toggle .toggle-icon.left{  left:8px;  }
-.theme-toggle .toggle-icon.right{ right:8px; }
+.theme-toggle.dark  .toggle-thumb{ transform: translateX(30px); }
+.theme-toggle.light .thumb-icon.sun.front { transform: translateX(-1px) scale(1); }
+.theme-toggle.dark  .thumb-icon.moon.front{ transform: translateX(1px)  scale(1); }
 
-.hero{ padding-top: 96px; min-height: 86vh; position: relative; }
-.hero-stage{ perspective:800px; }
-.floating-card{ --rx:0deg; --ry:0deg; --tx:0px; --ty:0px; transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--tx), var(--ty)); transition: transform .08s linear; position: relative; border-radius: 24px; overflow: hidden; border:1px solid color-mix(in oklab, var(--ink), transparent 70%); box-shadow: 0 24px 60px color-mix(in oklab, var(--ink), transparent 70%), inset 0 0 0 1px color-mix(in oklab, var(--ink), transparent 92%); }
-.floating-card .grid{ width:100%; aspect-ratio: 4/3; background:
-  radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 82%), transparent 50%),
-  conic-gradient(from 180deg at 50% 50%, color-mix(in oklab, var(--sand), transparent 72%), transparent 65%),
-  repeating-linear-gradient( to bottom, color-mix(in oklab, var(--ink), transparent 92%) 0 2px, transparent 2px 40px),
-  linear-gradient( to bottom right, color-mix(in oklab, var(--paper), white 20%), color-mix(in oklab, var(--sand), white 10%) );
+/* Optional tint per mode */
+.theme-toggle.light .toggle-thumb{
+  background: linear-gradient(160deg, color-mix(in oklab, var(--ink), var(--paper) 8%), var(--ink));
 }
-.floating-card .holo{ position:absolute; inset:0; background:
-  radial-gradient(800px 300px at 30% 120%, color-mix(in oklab, var(--ink), transparent 82%), transparent 60%),
-  radial-gradient(600px 300px at 90% -10%, color-mix(in oklab, var(--sand), transparent 76%), transparent 60%);
-  mix-blend-mode:multiply;
+.theme-toggle.dark .toggle-thumb{
+  background: linear-gradient(160deg, var(--ink), color-mix(in oklab, var(--ink), var(--paper) 18%));
 }
-.floating-card .caption{ position:absolute; left:16px; bottom:12px; font-weight:700; opacity:.85; color:var(--ink-900); }
 
-.py-6{ padding: 6rem 0; }
+/* Click burst */
+.theme-toggle.unreal.burst .toggle-track::after{
+  content:""; position:absolute; inset:0; border-radius:999px;
+  background:
+    radial-gradient(circle at 50% 50%,
+      color-mix(in oklab, var(--paper), var(--ink) 6%) 0%,
+      transparent 60%);
+  animation: burst .45s ease-out 1;
+  pointer-events:none;
+}
+@keyframes burst{
+  0%  { opacity:.85; transform: scale(0.9); }
+  100%{ opacity:0;   transform: scale(1.15); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .theme-toggle .toggle-aurora,
+  .theme-toggle .thumb-sparkle,
+  .theme-toggle .thumb-icon,
+  .theme-toggle .toggle-thumb{ animation: none; transition: none; }
+}
+
+.hero{ padding-top: calc(80px + env(safe-area-inset-top)); min-height: 84vh; position: relative; }
+.py-6{ padding: 5.5rem 0; }
 .badge-chip{ border:1px solid color-mix(in oklab, var(--ink), transparent 65%); color:var(--ink-700); background:color-mix(in oklab, var(--paper), white 10%); padding:.35rem .6rem; border-radius:999px; }
 
 .project-card{ background: color-mix(in oklab, var(--paper), white 8%); border: 1px solid color-mix(in oklab, var(--ink), transparent 70%); cursor:pointer; transition: transform .25s ease, box-shadow .25s ease; border-radius: 20px; overflow:hidden; }
@@ -885,6 +1044,7 @@ html, body, #root{ height:100%; background:var(--paper); color:var(--ink); }
 
 a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-offset: 3px; }
 
+/* ===== Modal ===== */
 .project-modal .modal-content{ background: color-mix(in oklab, var(--paper), white 10%); border:1px solid color-mix(in oklab, var(--ink), transparent 70%); box-shadow: 0 32px 90px color-mix(in oklab, var(--ink), transparent 65%); }
 .modal-head{ border-bottom:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: linear-gradient(180deg, color-mix(in oklab, var(--sand), transparent 65%), transparent); }
 .modal-title-strong{ font-weight:800; color:var(--ink-900); letter-spacing:.3px; }
@@ -894,16 +1054,150 @@ a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-of
   repeating-linear-gradient(90deg, color-mix(in oklab, var(--ink), transparent 78%) 0 2px, transparent 2px 6px);
   opacity:.35; border-top:1px solid color-mix(in oklab, var(--ink), transparent 86%);
 }
-.modal-img{ border-radius:12px; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); }
+/* Key mobile/tablet fix: prevent overflow */
+.modal-img{ border-radius:12px; border:1px solid color-mix(in oklab, var(--ink), transparent 80%); max-height: min(68vh, 900px); object-fit: contain; }
 .modal-foot{ border-top:1px solid color-mix(in oklab, var(--ink), transparent 80%); background: color-mix(in oklab, var(--paper), white 8%); }
 
 /* ===== CHIP PICKERS ===== */
 .chip-row{ display:flex; gap:.5rem; flex-wrap:wrap; max-width:100%; overflow-x:auto; padding:.25rem; border-radius:12px; background: color-mix(in oklab, var(--paper), white 6%); border:1px dashed color-mix(in oklab, var(--ink), transparent 75%); }
-.chip{ appearance:none; border:1px solid color-mix(in oklab, var(--ink), transparent 65%); background:color-mix(in oklab, var(--paper), white 12%); color:var(--ink-700); padding:.35rem .8rem; border-radius:999px; font-weight:700; letter-spacing:.2px; cursor:pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease; }
+.chip{ appearance:none; border:1px solid color-mix(in oklab, var(--ink), transparent 65%); background:color-mix(in oklab, var(--paper), white 12%); color:var(--ink-700); padding:.35rem .8rem; border-radius:999px; font-weight:700; letter-spacing:.2px; cursor:pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space:nowrap; }
 .chip:hover{ transform: translateY(-1px); background:color-mix(in oklab, var(--paper), white 18%); }
 .chip.active{ border-color: var(--ink); background: var(--ink); color: color-mix(in oklab, var(--paper), white 8%); box-shadow: 0 8px 24px color-mix(in oklab, var(--ink), transparent 70%); }
 .chip:focus{ outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--ink), transparent 70%); }
 .chip-dot{ font-size:.9em; opacity:.65; margin-left:.4rem; }
 
 .center{text-align:center}
+
+/* ==== HOLOGRAPHIC BLUEPRINT SCANNER ==== */
+.holo-frame{
+  position: relative;
+  border-radius: 24px;
+  border:1px solid color-mix(in oklab, var(--ink), transparent 70%);
+  overflow:hidden;
+  box-shadow: 0 24px 60px color-mix(in oklab, var(--ink), transparent 70%),
+              inset 0 0 0 1px color-mix(in oklab, var(--ink), transparent 92%);
+}
+.blueprint{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background:
+    linear-gradient(transparent 39px, color-mix(in oklab, var(--ink), transparent 86%) 40px),
+    linear-gradient(90deg, transparent 39px, color-mix(in oklab, var(--ink), transparent 86%) 40px),
+    radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 90%), transparent 60%),
+    linear-gradient(to bottom right, color-mix(in oklab, var(--paper), white 8%), color-mix(in oklab, var(--sand), white 6%));
+  background-size: 40px 40px, 40px 40px, auto, auto;
+  overflow:hidden;
+}
+:root[data-theme="dark"] .blueprint{
+  background:
+    linear-gradient(transparent 39px, color-mix(in oklab, var(--ink), white 80%) 40px),
+    linear-gradient(90deg, transparent 39px, color-mix(in oklab, var(--ink), white 80%) 40px),
+    radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 90%), transparent 60%),
+    linear-gradient(to bottom right, color-mix(in oklab, var(--paper), white 6%), color-mix(in oklab, var(--sand), white 4%));
+}
+/* Crossfade images */
+.holo-img{
+  position:absolute; inset:0;
+  width:100%; height:100%; object-fit:cover;
+  filter: saturate(1.05) contrast(1.05);
+  opacity:0;
+  animation: holoFade 20s linear infinite;
+  animation-delay: calc(var(--i) * 5s);
+}
+@keyframes holoFade{
+  0%{opacity:0}
+  5%{opacity:1}
+  25%{opacity:1}
+  30%{opacity:0}
+  100%{opacity:0}
+}
+/* Moving scanline */
+.scanline{
+  position:absolute; left:0; right:0; height:18%;
+  top:-20%;
+  background: linear-gradient(to bottom,
+    transparent,
+    color-mix(in oklab, var(--ink), transparent 80%),
+    transparent);
+  filter: blur(6px);
+  animation: scan 4.2s linear infinite;
+  mix-blend-mode: multiply;
+}
+@keyframes scan{
+  0%{ transform: translateY(0); }
+  100%{ transform: translateY(140%); }
+}
+/* Chromatic halo */
+.chromatic{
+  position:absolute; inset:-15%;
+  background:
+    radial-gradient(60% 40% at 30% 20%, color-mix(in oklab, var(--sand), transparent 70%), transparent 60%),
+    radial-gradient(50% 40% at 80% 70%, color-mix(in oklab, var(--ink-500), transparent 75%), transparent 60%);
+  mix-blend-mode: color-burn;
+  pointer-events:none;
+}
+/* Blueprint corners */
+.bp-corner{ position:absolute; width:42px; height:42px; }
+.bp-corner::before, .bp-corner::after{
+  content:""; position:absolute; background: color-mix(in oklab, var(--ink), transparent 45%);
+}
+.bp-corner.tl{ top:10px; left:10px; }
+.bp-corner.tr{ top:10px; right:10px; }
+.bp-corner.bl{ bottom:10px; left:10px; }
+.bp-corner.br{ bottom:10px; right:10px; }
+.bp-corner.tl::before, .bp-corner.bl::before{ width:24px; height:2px; left:0; top:15; }
+.bp-corner.tl::after, .bp-corner.tr::after{ width:2px; height:24px; left:15; top:0; }
+.bp-corner.tr::before{ width:24px; height:2px; right:0; top:0; }
+.bp-corner.tr::after{ width:2px; height:24px; right:0; top:0; }
+.bp-corner.bl::after{ width:2px; height:24px; left:0; bottom:0; }
+.bp-corner.bl::before{ width:24px; height:2px; left:0; bottom:0; }
+.bp-corner.br::before{ width:24px; height:2px; right:0; bottom:0; }
+.bp-corner.br::after{ width:2px; height:24px; right:0; bottom:0; }
+/* Caption */
+.holo-caption{
+  position:absolute; left:16px; bottom:12px;
+  font-weight:800; letter-spacing:.2px;
+  color:var(--ink-900);
+  text-shadow: 0 1px 0 color-mix(in oklab, var(--paper), white 30%);
+}
+
+/* ===================== */
+/*   RESPONSIVE TWEAKS   */
+/* ===================== */
+
+/* Tablets (<= 992px) */
+@media (max-width: 991.98px){
+  .hero{ min-height: 72vh; }
+  .py-6{ padding: 4.5rem 0; }
+  .section-title{ font-size: 1.6rem; }
+  .holo-caption{ font-size: .95rem; }
+  .orb-a{ width:60vw; height:60vw; }
+  .orb-b{ width:60vw; height:60vw; }
+  .orb-c{ width:40vw; height:40vw; }
+  .project-card:hover, .project-card:hover .project-img{ transform:none; box-shadow:none; }
+  .chip-row{ gap:.4rem; }
+  .modal-img{ max-height: 64vh; }
+}
+
+/* Phones (<= 576px) */
+@media (max-width: 575.98px){
+  .hero{ min-height: 64vh; }
+  .py-6{ padding: 3.75rem 0; }
+  .brand{ font-size: 1rem; }
+  .readable{ font-size: 1rem; line-height: 1.6; }
+  .section-title{ font-size: 1.35rem; }
+  .badge-chip{ display:none; } /* trims header clutter */
+  .blueprint{ aspect-ratio: 1/1; } /* squarer frame on narrow screens */
+  .holo-caption{ font-size: .9rem; }
+  .chip{ padding:.3rem .7rem; }
+  .modal-dialog{ margin: .75rem; } /* more room on small screens */
+  .modal-img{ max-height: 60vh; }
+}
+
+/* Very small devices */
+@media (max-width: 360px){
+  .section-title{ font-size: 1.2rem; }
+  .readable{ font-size: .98rem; }
+}
 `;
