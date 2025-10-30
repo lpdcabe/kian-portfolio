@@ -18,6 +18,17 @@ import { useForm, ValidationError } from "@formspree/react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /* ==== LOCAL ASSETS (Community) ==== */
+import coffeestand from "./assets/proposed-community/neighborhood-stores/COFFEE STAND.png";
+import corner from "./assets/proposed-community/neighborhood-stores/CORNER.png";
+import neighboorhoodimage2 from "./assets/proposed-community/neighborhood-stores/Image_2.png";
+import neighboorhoodimage4 from "./assets/proposed-community/neighborhood-stores/Image_4.png";
+import neighboorhoodimage5 from "./assets/proposed-community/neighborhood-stores/Image_5.png";
+import neighboorhood1 from "./assets/proposed-community/neighborhood-stores/NEIGHBORHOOD 1.png";
+import neighboorhood2 from "./assets/proposed-community/neighborhood-stores/NEIGHBORHOOD 2.png";
+import neighboorhood4 from "./assets/proposed-community/neighborhood-stores/NEIGHBORHOOD 4.png";
+import neighboorhoodstore from "./assets/proposed-community/neighborhood-stores/NEIGHBORHOOD STORE.png";
+import neighboorhoodnew from "./assets/proposed-community/neighborhood-stores/new.png";
+
 import spotscene from "./assets/proposed-community/perspectives/spot-pres/Scene.png";
 import spotscene1 from "./assets/proposed-community/perspectives/spot-pres/Scene-1.png";
 import spotscene3 from "./assets/proposed-community/perspectives/spot-pres/Scene-3.png";
@@ -139,11 +150,15 @@ const PROJECTS = [
   year: 2024,
   type: "Public Space / Pavilion",
   cover: aerial,
-  tags: ["perspectives", "spot pres", "street scapes", "studio unit", "placemaking"],
+  tags: ["neighborhood stores", "perspectives", "spot pres", "street scapes", "studio unit", "placemaking"],
   summary:
     "Visual studies grouped by topic. 'Perspectives' contains 4 subfolders (Spot Pres, Street Scapes, Studio Unit).",
 
   folders: [
+    {
+      name: "Neighborhood Stores",
+      images: [coffeestand, corner, neighboorhoodimage2, neighboorhoodimage4, neighboorhoodimage5, neighboorhood1, neighboorhood2, neighboorhood4, neighboorhoodstore, neighboorhoodnew],
+    },
     {
       name: "Perspectives",
       folders: [
