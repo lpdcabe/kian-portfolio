@@ -1090,11 +1090,12 @@ a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-of
 }
 :root[data-theme="dark"] .blueprint{
   background:
-    linear-gradient(transparent 39px, color-mix(in oklab, var(--ink), white 80%) 40px),
-    linear-gradient(90deg, transparent 39px, color-mix(in oklab, var(--ink), white 80%) 40px),
+    linear-gradient(transparent 39px, color-mix(in oklab, var(--ink), transparent 86%) 40px),
+    linear-gradient(90deg, transparent 39px, color-mix(in oklab, var(--ink), transparent 86%) 40px),
     radial-gradient(1200px 600px at 80% 20%, color-mix(in oklab, var(--ink), transparent 90%), transparent 60%),
-    linear-gradient(to bottom right, color-mix(in oklab, var(--paper), white 6%), color-mix(in oklab, var(--sand), white 4%));
+    linear-gradient(to bottom right, color-mix(in oklab, var(--paper), black 4%), color-mix(in oklab, var(--sand), black 6%));
 }
+
 /* Crossfade images */
 .holo-img{
   position:absolute; inset:0;
@@ -1145,8 +1146,10 @@ a.link-ink{ color: var(--ink-900); text-decoration: underline; text-underline-of
 .bp-corner.tr{ top:10px; right:10px; }
 .bp-corner.bl{ bottom:10px; left:10px; }
 .bp-corner.br{ bottom:10px; right:10px; }
-.bp-corner.tl::before, .bp-corner.bl::before{ width:24px; height:2px; left:0; top:15; }
-.bp-corner.tl::after, .bp-corner.tr::after{ width:2px; height:24px; left:15; top:0; }
+.bp-corner.tl::before, 
+.bp-corner.bl::before { width:24px; height:2px; left:0; top:15; }
+.bp-corner.tl::after, 
+.bp-corner.tr::after { width:2px; height:24px; left:15; top:0; }
 .bp-corner.tr::before{ width:24px; height:2px; right:0; top:0; }
 .bp-corner.tr::after{ width:2px; height:24px; right:0; top:0; }
 .bp-corner.bl::after{ width:2px; height:24px; left:0; bottom:0; }
