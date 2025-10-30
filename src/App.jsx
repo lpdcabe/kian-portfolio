@@ -15,6 +15,7 @@ import {
   Alert,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 /* ==== LOCAL ASSETS (Community) ==== */
 import coffeestand from "./assets/proposed-community/neighborhood-stores/COFFEE STAND.png";
@@ -135,10 +136,8 @@ const PROFILE = {
   email: "klgsabordo.21@gmail.com",
   location: "Tabun, Angeles City, Pampanga",
   socials: [
-    { label: "Instagram", href: "https://instagram.com/", icon: "bi-instagram" },
-    { label: "Behance", href: "https://behance.net/", icon: "bi-behance" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/", icon: "bi-linkedin" },
-    { label: "X", href: "https://x.com/", icon: "bi-twitter-x" },
+    { label: "Instagram", href: "https://instagram.com/kian_louises", icon: "bi-instagram" },
+    { label: "Facebook", href: "https://www.facebook.com/kian.sabordo.21", icon: "bi-facebook" },
   ],
   course: "BS Architecture, Holy Angel University",
 };
