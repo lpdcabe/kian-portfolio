@@ -1,5 +1,13 @@
+/* Mobile-first shell: remove desktop-only constraints */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Keep your base type tokens using CSS vars (works with dark mode) */
 :root {
-  /* Use variables so dark mode works */
   color: var(--ink);
   background: var(--paper);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
@@ -16,10 +24,26 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  /* Ensure body follows the theme */
   background: var(--paper);
   color: var(--ink);
 }
 
+/* Container breathing room on larger screens only */
+@media (min-width: 1200px) {
+  #root {
+    padding: 1.5rem;
+  }
+}
+
 h1, h2, h3, h4, h5 { color: var(--ink-900); line-height: 1.25; }
 button { font-family: inherit; }
+
+/* --- Mobile/Tablet: kill horizontal scroll globally --- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+
+/* Media elements never exceed the viewport */
+img, video, svg, canvas { max-width: 100%; height: auto; display: block; }
+
+/* Lock horizontal panning on touch; keep natural vertical scroll */
+body { touch-action: pan-y; overscroll-behavior-x: none; }
