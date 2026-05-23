@@ -15,9 +15,102 @@ import {
   Alert,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+// Proposed Community — spot-perspective
 import rainPng from "./assets/proposed-community/spot-perspective/raining.png";
 import exterior from "./assets/proposed-community/spot-perspective/EXTERIOR.png";
 import exterior2 from "./assets/proposed-community/spot-perspective/exterior-2.png";
+import spotRoof from "./assets/proposed-community/spot-perspective/ROOF.png";
+import spotForDetail from "./assets/proposed-community/spot-perspective/FOR SPOT DETAIL.png";
+import spotScene2 from "./assets/proposed-community/spot-perspective/Scene 2.png";
+import spotScene3 from "./assets/proposed-community/spot-perspective/Scene 3.png";
+import spotScene4 from "./assets/proposed-community/spot-perspective/Scene 4.png";
+import spotScene5 from "./assets/proposed-community/spot-perspective/Scene 5.png";
+import spotScene6 from "./assets/proposed-community/spot-perspective/Scene 6.png";
+import spotScene7 from "./assets/proposed-community/spot-perspective/Scene 7_1.png";
+import spotScene8 from "./assets/proposed-community/spot-perspective/Scene 8_1.png";
+import spotScene9 from "./assets/proposed-community/spot-perspective/Scene 9.png";
+import spotScene10 from "./assets/proposed-community/spot-perspective/Scene 10.png";
+import spotScene15 from "./assets/proposed-community/spot-perspective/Scene 15_3.png";
+import spotScene16 from "./assets/proposed-community/spot-perspective/Scene 16.png";
+// Proposed Community — placemaking
+import placeImg0 from "./assets/proposed-community/placemaking/Image.png";
+import placeImg1 from "./assets/proposed-community/placemaking/Image_1.png";
+import placeImg3 from "./assets/proposed-community/placemaking/Image_3.png";
+import placeImg4 from "./assets/proposed-community/placemaking/Image_4.png";
+// Proposed Community — perspectives / CONDO
+import condoImg0 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image.png";
+import condoImg1 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_1.png";
+import condoImg2 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_2.png";
+import condoImg3 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_3.png";
+import condoImg4 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_4.png";
+import condoImg5 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_5.png";
+import condoImg6 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_6.png";
+import condoImg7 from "./assets/proposed-community/perspectives/CONDO/INITIAL/Image_7.png";
+// Proposed Community — perspectives / SPOT PERS
+import spotPers1a from "./assets/proposed-community/perspectives/SPOT PERS/Scene 1 (1).png";
+import spotPers1 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 1.png";
+import spotPers3 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 3.png";
+import spotPers4 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 4.png";
+import spotPers5 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 5.png";
+import spotPers6 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 6.png";
+import spotPers7 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 7.png";
+import spotPers8 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 8.png";
+import spotPers9 from "./assets/proposed-community/perspectives/SPOT PERS/Scene 9.png";
+// Proposed Community — perspectives / STREET SCAPES
+import streetAerial from "./assets/proposed-community/perspectives/STREET SCAPES/AERIAL.png";
+import streetClinic2 from "./assets/proposed-community/perspectives/STREET SCAPES/CLINIC 2.png";
+import streetClinic from "./assets/proposed-community/perspectives/STREET SCAPES/CLINIC.png";
+import streetMall2 from "./assets/proposed-community/perspectives/STREET SCAPES/MALL 2.png";
+import streetMallDiff from "./assets/proposed-community/perspectives/STREET SCAPES/MALLDIFF SUN_1.png";
+import streetSchool1 from "./assets/proposed-community/perspectives/STREET SCAPES/SCHOOL 1.png";
+import streetSchool2 from "./assets/proposed-community/perspectives/STREET SCAPES/SCHOOL2.png";
+// Proposed Community — perspectives / STUDIO UNIT
+import studio1BedCross from "./assets/proposed-community/perspectives/STUDIO UNIT/1 BEDROOM CROSS.png";
+import studioFloorDim2 from "./assets/proposed-community/perspectives/STUDIO UNIT/FLOOR PLAN DIMENSION 2.png";
+import studioFloorDim from "./assets/proposed-community/perspectives/STUDIO UNIT/FLOOR PLAN DIMENSION.png";
+import studioImg from "./assets/proposed-community/perspectives/STUDIO UNIT/Image.png";
+import studio1BedFloor from "./assets/proposed-community/perspectives/STUDIO UNIT/ONE BEDROOM FLOORPLAN.png";
+import studio1BedLong from "./assets/proposed-community/perspectives/STUDIO UNIT/ONE BEDROOM LONGITUDINAL.png";
+import studioCross from "./assets/proposed-community/perspectives/STUDIO UNIT/STUDIO CROSS.png";
+import studioIso from "./assets/proposed-community/perspectives/STUDIO UNIT/STUDIO ISOMETRIC.png";
+import studioLong from "./assets/proposed-community/perspectives/STUDIO UNIT/STUDIO UNIT LONGITUDINAL.png";
+import studioScene1 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 1.png";
+import studioScene2 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 2.png";
+import studioScene3 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 3.png";
+import studioScene4 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 4.png";
+import studioScene6 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 6.png";
+import studioScene7 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 7.png";
+import studioScene8 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 8.png";
+import studioScene9 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 9.png";
+import studioScene10 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 10.png";
+import studioScene11 from "./assets/proposed-community/perspectives/STUDIO UNIT/Scene 11.png";
+
+// Proposed Park
+import parkAerial from "./assets/proposed-park/AERIAL.png";
+import parkAerial2 from "./assets/proposed-park/AERIAL 2.png";
+import parkImg0 from "./assets/proposed-park/Image.png";
+import parkImg1 from "./assets/proposed-park/Image_1.png";
+import parkImg2 from "./assets/proposed-park/Image_2.png";
+import parkImg3 from "./assets/proposed-park/Image_3.png";
+import parkImg4 from "./assets/proposed-park/Image_4.png";
+import parkImg5 from "./assets/proposed-park/Image_5.png";
+import parkImg6 from "./assets/proposed-park/Image_6.png";
+import parkImg7 from "./assets/proposed-park/Image_7.png";
+import parkImg8 from "./assets/proposed-park/Image_8.png";
+import parkImg9 from "./assets/proposed-park/Image_9.png";
+import parkImg11 from "./assets/proposed-park/Image_11.png";
+import parkImg12 from "./assets/proposed-park/Image_12.png";
+import parkImg13 from "./assets/proposed-park/Image_13.png";
+import parkImg14 from "./assets/proposed-park/Image_14.png";
+import parkImg16 from "./assets/proposed-park/Image_16.png";
+import parkImg17 from "./assets/proposed-park/Image_17.png";
+import parkImg18 from "./assets/proposed-park/Image_18.png";
+import parkImg20 from "./assets/proposed-park/Image_20.png";
+import parkImg21 from "./assets/proposed-park/Image_21.png";
+
+// Sample Render
+import renderLiving from "./assets/sample-render/Living Area 1.jpg";
+import renderBedroom from "./assets/sample-render/bedroom.jpg";
 
 // ======== CONFIGURABLE CONTENT ========
 const PROFILE = {
@@ -42,44 +135,45 @@ const PROJECTS = [
     title: "PROPOSED COMMUNITY",
     year: 2024,
     type: "MARANGLE KABIT KO?",
-    cover:
-      rainPng,
+    cover: rainPng,
     images: [
-      exterior, rainPng, exterior2
+      exterior, rainPng, exterior2, spotRoof, spotForDetail,
+      spotScene2, spotScene3, spotScene4, spotScene5, spotScene6,
+      spotScene7, spotScene8, spotScene9, spotScene10, spotScene15, spotScene16,
+      placeImg0, placeImg1, placeImg3, placeImg4,
+      condoImg0, condoImg1, condoImg2, condoImg3, condoImg4, condoImg5, condoImg6, condoImg7,
+      spotPers1a, spotPers1, spotPers3, spotPers4, spotPers5, spotPers6, spotPers7, spotPers8, spotPers9,
+      streetAerial, streetClinic2, streetClinic, streetMall2, streetMallDiff, streetSchool1, streetSchool2,
+      studio1BedCross, studioFloorDim2, studioFloorDim, studioImg, studio1BedFloor, studio1BedLong,
+      studioCross, studioIso, studioLong,
+      studioScene1, studioScene2, studioScene3, studioScene4, studioScene6,
+      studioScene7, studioScene8, studioScene9, studioScene10, studioScene11,
     ],
     tags: ["hindi", "ko", "alam"],
-    summary:
-      "send ka summary mo dito.",
+    summary: "send ka summary mo dito.",
   },
   {
-    title: "luklukan ikwa ke keng google",
+    title: "PROPOSED PARK",
+    year: 2024,
+    type: "Landscape / Urban",
+    cover: parkAerial,
+    images: [
+      parkAerial, parkAerial2, parkImg0, parkImg1, parkImg2, parkImg3, parkImg4,
+      parkImg5, parkImg6, parkImg7, parkImg8, parkImg9,
+      parkImg11, parkImg12, parkImg13, parkImg14, parkImg16,
+      parkImg17, parkImg18, parkImg20, parkImg21,
+    ],
+    tags: ["landscape", "park", "urban"],
+    summary: "send ka summary mo dito.",
+  },
+  {
+    title: "SAMPLE RENDER",
     year: 2025,
-    type: "dutung / paku",
-    cover:
-      "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1600&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1494415859740-21e878dd929d?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1526483360412-f4dbaf036963?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1600&auto=format&fit=crop",
-    ],
-    tags: ["biophilic", "high-rise", "façade"],
-    summary:
-      "A biophilic tower with a responsive façade: operable fins and planter loggias tune daylight, ventilation, and privacy.",
-  },
-  {
-    title: "Museum of Light",
-    year: 2023,
-    type: "Cultural / Museum",
-    cover:
-      "https://images.unsplash.com/photo-1520567263472-4d17a6b724b6?q=80&w=1600&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1483825366482-1265f6e1e38f?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1537884944318-390069bb8665?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=1600&auto=format&fit=crop",
-    ],
-    tags: ["gallery", "light", "concrete"],
-    summary:
-      "A subterranean museum carved with lightwells and catenary vaults. The gallery sequence is choreographed by luminance.",
+    type: "Interior / Visualization",
+    cover: renderLiving,
+    images: [renderLiving, renderBedroom],
+    tags: ["interior", "render", "visualization"],
+    summary: "send ka summary mo dito.",
   },
 ];
 
