@@ -380,25 +380,51 @@ function ProjectModal({ show, onHide, project }) {
 
 function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
   const [validated, setValidated] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.stopPropagation();
-    } else {
-      setSent(true);
-      form.reset();
+      setValidated(true);
+      return;
     }
     setValidated(true);
+    setSubmitting(true);
+    setError(false);
+    try {
+      const res = await fetch(import.meta.env.VITE_FORMSPREE_URL, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+        setValidated(false);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div className="contact-form p-4 rounded-4">
       {sent && (
         <Alert variant="success" onClose={() => setSent(false)} dismissible>
-          Thanks! Your message was staged. In production, wire this to your email or a service like Formspree.
+          Thanks! I'll get back to you within 48 hours.
+        </Alert>
+      )}
+      {error && (
+        <Alert variant="danger" onClose={() => setError(false)} dismissible>
+          Something went wrong. Please try again or email directly.
         </Alert>
       )}
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -406,26 +432,26 @@ function ContactForm() {
           <Col md={6}>
             <Form.Group controlId="name">
               <Form.Label className="readable-strong">Name</Form.Label>
-              <Form.Control required type="text" placeholder="Your name" />
+              <Form.Control required type="text" name="name" placeholder="Your name" />
               <Form.Control.Feedback type="invalid">Please provide your name.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col md={6}>
             <Form.Group controlId="email">
               <Form.Label className="readable-strong">Email</Form.Label>
-              <Form.Control required type="email" placeholder="you@email.com" />
+              <Form.Control required type="email" name="email" placeholder="you@email.com" />
               <Form.Control.Feedback type="invalid">A valid email is required.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col xs={12}>
             <Form.Group controlId="message">
               <Form.Label className="readable-strong">Message</Form.Label>
-              <Form.Control required as="textarea" rows={4} placeholder="Tell me about your project…" />
+              <Form.Control required as="textarea" rows={4} name="message" placeholder="Tell me about your project…" />
               <Form.Control.Feedback type="invalid">Please add a short message.</Form.Control.Feedback>
             </Form.Group>
           </Col>
           <Col xs={12}>
-            <Button type="submit" className="btn-ink">Send Message</Button>
+            <Button type="submit" className="btn-ink" disabled={submitting}>{submitting ? "Sending…" : "Send Message"}</Button>
           </Col>
         </Row>
       </Form>
